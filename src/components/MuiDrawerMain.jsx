@@ -50,10 +50,9 @@ const MuiDrawerMain = () => {
                     Testowy opis tego co widzimy na obrazku...
                     Testowy opis tego co widzimy na obrazku...
                     Testowy opis tego co widzimy na obrazku...
-                    
                 </Typography>
             </div>
-
+            
             <hr/>
 
             <div className='mods-icons-box'>
