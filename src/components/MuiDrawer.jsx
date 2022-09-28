@@ -84,7 +84,7 @@ const MuiDrawer = () => {
             onClose={() => setIsDrowerOpen(false)}
             PaperProps={{
             sx:{
-                width:325,
+                width:235,
                 overflowX:'hidden',
                 overflowY:'hidden',
                 p:0,
