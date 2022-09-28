@@ -7,18 +7,18 @@ const Data = [
     },
     {
         id:2,
-        img:"https://thispersondoesnotexist.com/image",
-        title:"TEST 1"
+        img:"https://picsum.photos/200",
+        title:"TEST 2"
     },
     {
         id:3,
-        img:"https://thispersondoesnotexist.com/image",
-        title:"TEST 1"
+        img:"https://random.dog/e5ccde95-9fce-4eaf-8500-5d5fbe43cb56.jpg",
+        title:"TEST 3"
     },
     {
         id:4,
-        img:"https://thispersondoesnotexist.com/image",
-        title:"TEST 1"
+        img:"https://purr.objects-us-east-1.dream.io/i/ddJ2vs2.jpg",
+        title:"TEST 4"
     },
     {
         id:5,
