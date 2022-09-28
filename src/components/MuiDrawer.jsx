@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Drawer,Box,Typography,IconButton,Grid, Backdrop, backdropClasses, Collapse, Fade} from '@mui/material'
+import { Drawer,Box,Typography,IconButton,Grid, Backdrop, backdropClasses, Collapse, Fade, SwipeableDrawer} from '@mui/material'
 import React from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -76,7 +76,7 @@ const MuiDrawer = () => {
       null
       }
 
-        <Drawer 
+        <Drawer
             
             anchor='left'
             open={isDrawerOpen} 
@@ -84,7 +84,7 @@ const MuiDrawer = () => {
             onClose={() => setIsDrowerOpen(false)}
             PaperProps={{
             sx:{
-                width:450,
+                width:325,
                 overflowX:'hidden',
                 overflowY:'hidden',
                 p:0,

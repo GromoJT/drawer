@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography } from '@mui/material'
+import { Box, Divider, IconButton, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import "./styles/MuiDrawerMainStyles.css";
 
@@ -25,7 +25,7 @@ const MuiDrawerMain = () => {
             backdropFilter:'blure(3px)',
             color:'black',
             height:'100%',
-            width:250,
+            width:200,
             background: "rgba(7,7,7,0.7)",
             backdropFilter: "blur(6px)",
         }}

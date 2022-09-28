@@ -16,7 +16,7 @@ const MuiDrawerRight = (props) => {
         width:'34px',
         position:'absolute',
         top:100,
-        left:250,
+        left:200,
         borderTopRightRadius:'50%',
         borderBottomRightRadius:'50%',
         
