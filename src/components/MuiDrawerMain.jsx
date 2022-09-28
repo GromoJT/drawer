@@ -25,6 +25,7 @@ const MuiDrawerMain = () => {
             backdropFilter:'blure(3px)',
             color:'black',
             height:'100%',
+            width:250,
             background: "rgba(7,7,7,0.7)",
             backdropFilter: "blur(6px)",
         }}
@@ -36,9 +37,11 @@ const MuiDrawerMain = () => {
             textAlign:'start',
             color:'white'
         }}>
-            <Typography variant='h5' component='div'>
-                TEST        
-            </Typography>
+            <div className='title-area'>
+                <Typography variant='h5' component='div'>
+                    TEST        
+                </Typography>
+            </div>
             <div className='description-area'>
                 <Typography variant='p' component='div' marginTop='1rem'>
                     Testowy opis tego co widzimy na obrazku...
@@ -52,7 +55,7 @@ const MuiDrawerMain = () => {
                     Testowy opis tego co widzimy na obrazku...
                 </Typography>
             </div>
-            
+
             <hr/>
 
             <div className='mods-icons-box'>

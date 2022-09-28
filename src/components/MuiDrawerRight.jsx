@@ -16,9 +16,10 @@ const MuiDrawerRight = (props) => {
         width:'34px',
         position:'absolute',
         top:100,
-        left:413,
+        left:250,
         borderTopRightRadius:'50%',
         borderBottomRightRadius:'50%',
+        
     }}
    >
     <IconButton

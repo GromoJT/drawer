@@ -9,11 +9,32 @@ import MuiDrawerMain from './MuiDrawerMain';
 import MuiDrawerRight from './MuiDrawerRight';
 
 const MuiDrawer = () => {
+    
+    const [isMobile,setIsMobile] = useState(false)
     const [isDrawerOpen,setIsDrowerOpen] = useState(false)
+
 
     const handleSetIsDrawerOpen = () => {
         setIsDrowerOpen(false);
     }
+
+    const standardSize = '450px'
+    const mobileSize = '325px'
+    
+    function getWidth() {
+      return Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+      );
+    }
+
+    console.log(getWidth())
+
+
+
     return (
       <> 
       {
@@ -63,27 +84,30 @@ const MuiDrawer = () => {
             onClose={() => setIsDrowerOpen(false)}
             PaperProps={{
             sx:{
-                
+                width:450,
                 overflowX:'hidden',
                 overflowY:'hidden',
                 p:0,
-                width:450,
                 color:'black',
                 border:'none',
                 backgroundColor:'transparent',
                 
             }
           }}
+
+          
         >
-        <Grid container spacing={0} sx={{flexGrow:1}} >
+          <MuiDrawerMain/>
+          <MuiDrawerRight handleSetIsDrawerOpen={handleSetIsDrawerOpen}/>
+        {/* <Grid container spacing={0} sx={{flexGrow:1}} >
             <Grid item xs={11}>
-                <MuiDrawerMain/>
+                
             </Grid>
             <Grid item xs={1}>
-                <MuiDrawerRight handleSetIsDrawerOpen={handleSetIsDrawerOpen}/>
+                
             </Grid>
 
-        </Grid>
+        </Grid> */}
       </Drawer>
       </>
     )
