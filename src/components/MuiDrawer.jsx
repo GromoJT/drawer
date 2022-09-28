@@ -19,12 +19,7 @@ const MuiDrawer = () => {
         setIsDrowerOpen(false);
     }
     
-    
-  
-
     console.log(screanInnerWidth)
-    
-
 
     return (
       <> 

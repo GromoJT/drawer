@@ -10,12 +10,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
+import Data from '../data/data'
 
 const MuiDrawerMain = (props) => {
 
     const [gridView,setGridView] = useState(true)
     const [smallGrid,setSmallGrid] = useState(false)
-
+    const items = Data
+    console.log(items)
     useEffect(()=>{
         console.log(props.myWidth)
         if(props.myWidth<400){
@@ -26,6 +28,8 @@ const MuiDrawerMain = (props) => {
         }
     },[])
 
+
+    
     
 
     const changeView = () =>{
@@ -38,13 +42,12 @@ const MuiDrawerMain = (props) => {
         textAlign='center' 
         role='presentation'
         sx={{
-            backdropFilter:'blure(3px)',
             color:'black',
             height:'100%',
             width:props.myWidth,
             //Standard : 400
             //Mobile : 200
-            background: "rgba(7,7,7,0.7)",
+            background: "rgba(0,0,0,0.7)",
             backdropFilter: "blur(6px)",
         }}
     >
@@ -62,12 +65,6 @@ const MuiDrawerMain = (props) => {
             </div>
             <div className='description-area'>
                 <Typography variant='p' component='div' marginTop='1rem'>
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
                     Testowy opis tego co widzimy na obrazku...
                     Testowy opis tego co widzimy na obrazku...
                     Testowy opis tego co widzimy na obrazku...
@@ -146,78 +143,37 @@ const MuiDrawerMain = (props) => {
                         ?
                             
                             <div className={smallGrid?'grid-container-small':'grid-container-standard'}>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
-                                </div>
+                                {
+                   
+                                    items.map( item => {
+                                            // console.log(item)
+                                            return(
+                                                <div className='grid-element' key={item.id}>
+                                                <MuiDrawerGridElement img={item.img} title={item.title}/>
+                                                </div>
+                                            )
+                                    }) 
+                                }
+                                
+                               
                             </div>
                         :
                             <div className='list-container'>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
-                                <div className='list-element'>
-                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
-                                </div>
+
+                            {
+                            
+                                items.map( item => {
+                                        // console.log(item)
+                                        return(
+                                            <div className='list-element' key={item.id}>
+                                                <MuiDrawerListElement img={item.img} title={item.title} />
+                                            </div>
+                                        )
+                                }) 
+                            }
+
+                                
+                                
                             </div>
                     }
                 </div>
@@ -231,14 +187,6 @@ const MuiDrawerMain = (props) => {
                         <InfoOutlinedIcon/><Typography sx={{marginLeft:'0.5rem'}} variant='h5'>TEST</Typography>
                     </Box>
                     <div className='expArea'>
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
                         Testowy opis czegoś czego jeszce nie ma...
                         Testowy opis czegoś czego jeszce nie ma...
                         Testowy opis czegoś czego jeszce nie ma...

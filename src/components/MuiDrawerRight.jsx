@@ -9,8 +9,8 @@ const MuiDrawerRight = (props) => {
     textAlign='center' 
     role='presentation'
     sx={{
-        background: "rgba(9,9,9,0.7)",
-        backdropFilter: "blur(4px)",
+        background: "rgba(0,0,0,0.7)",
+        backdropFilter: "blur(6px)",
         color:'white',
         height:'34px',
         width:'34px',

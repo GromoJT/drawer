@@ -1,7 +1,6 @@
 import React from "react"
-import { ImageListItem, ImageListItemBar } from "@mui/material"
 import './styles/MuiGridElementStyles.css'
-import { Height } from "@mui/icons-material"
+
 
 const MuiDrawerGridElement = (props) => {
   return (

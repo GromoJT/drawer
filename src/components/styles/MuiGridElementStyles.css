@@ -14,4 +14,9 @@
 
 .gridImageTitle{
     font-size: small;
+    width: 105px;
+    height: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

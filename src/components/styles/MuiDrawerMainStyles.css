@@ -37,7 +37,7 @@
     padding-top: 0.5rem;
     overflow-y: auto;
     min-height: 3vh;
-    max-height: 40vh;
+    max-height: 42vh;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
     margin-bottom: 5vh;
@@ -85,9 +85,10 @@
 }
 
 .scroll-explanetion{
-    
-   
-    
+    position: fixed;
+    bottom: 0;
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 
