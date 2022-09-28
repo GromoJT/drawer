@@ -2,13 +2,14 @@ import { Box, Divider, IconButton, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import "./styles/MuiDrawerMainStyles.css";
 import MuiDrawerGridElement from './MuiDrawerGridElement';
-
+import MuiDrawerListElement from './MuiDrawerListElement';
 
 import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 
 const MuiDrawerMain = (props) => {
 
@@ -197,85 +198,25 @@ const MuiDrawerMain = (props) => {
                         :
                             <div className='list-container'>
                                 <div className='list-element'>
-                                    test 1
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 2
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 3
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 4
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 5
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 6
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                                 <div className='list-element'>
-                                    test 7
-                                </div>
-                                <div className='list-element'>
-                                    test 8
-                                </div>
-                                <div className='list-element'>
-                                    test 9
-                                </div>
-                                <div className='list-element'>
-                                    test 1
-                                </div>
-                                <div className='list-element'>
-                                    test 2
-                                </div>
-                                <div className='list-element'>
-                                    test 3
-                                </div>
-                                <div className='list-element'>
-                                    test 4
-                                </div>
-                                <div className='list-element'>
-                                    test 5
-                                </div>
-                                <div className='list-element'>
-                                    test 6
-                                </div>
-                                <div className='list-element'>
-                                    test 7
-                                </div>
-                                <div className='list-element'>
-                                    test 8
-                                </div>
-                                <div className='list-element'>
-                                    test 9
-                                </div>
-                                <div className='list-element'>
-                                    test 1
-                                </div>
-                                <div className='list-element'>
-                                    test 2
-                                </div>
-                                <div className='list-element'>
-                                    test 3
-                                </div>
-                                <div className='list-element'>
-                                    test 4
-                                </div>
-                                <div className='list-element'>
-                                    test 5
-                                </div>
-                                <div className='list-element'>
-                                    test 6
-                                </div>
-                                <div className='list-element'>
-                                    test 7
-                                </div>
-                                <div className='list-element'>
-                                    test 8
-                                </div>
-                                <div className='list-element'>
-                                    test 9
+                                    <MuiDrawerListElement img="https://thispersondoesnotexist.com/image" title="TEST" />
                                 </div>
                             </div>
                     }

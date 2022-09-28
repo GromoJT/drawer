@@ -35,13 +35,12 @@
 
 .scroll-div{
     padding-top: 0.5rem;
-    
     overflow-y: auto;
     min-height: 3vh;
-    max-height: 50vh;
+    max-height: 40vh;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
 }
 
 .scroll-object{
