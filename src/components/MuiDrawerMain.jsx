@@ -1,6 +1,8 @@
 import { Box, Divider, IconButton, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./styles/MuiDrawerMainStyles.css";
+import MuiDrawerGridElement from './MuiDrawerGridElement';
+
 
 import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
@@ -8,9 +10,22 @@ import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-const MuiDrawerMain = () => {
+const MuiDrawerMain = (props) => {
 
     const [gridView,setGridView] = useState(true)
+    const [smallGrid,setSmallGrid] = useState(false)
+
+    useEffect(()=>{
+        console.log(props.myWidth)
+        if(props.myWidth<400){
+            setSmallGrid(true)
+        }
+        else{
+            setSmallGrid(false)
+        }
+    },[])
+
+    
 
     const changeView = () =>{
         setGridView(!gridView)
@@ -25,7 +40,9 @@ const MuiDrawerMain = () => {
             backdropFilter:'blure(3px)',
             color:'black',
             height:'100%',
-            width:200,
+            width:props.myWidth,
+            //Standard : 400
+            //Mobile : 200
             background: "rgba(7,7,7,0.7)",
             backdropFilter: "blur(6px)",
         }}
@@ -126,35 +143,77 @@ const MuiDrawerMain = () => {
                     {
                         gridView
                         ?
-                            <div className='grid-container'>
-                                <div className='grid-element'>
-                                    test 1
-                                </div>
-                                <div className='grid-element'>
-                                    test 2
-                                </div>
-                                <div className='grid-element'>
-                                    test 3
-                                </div>
+                            
+                            <div className={smallGrid?'grid-container-small':'grid-container-standard'}>
 
                                 <div className='grid-element'>
-                                    test 1
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    test 2
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
                                 </div>
                                 <div className='grid-element'>
-                                    test 3
-                                </div>
-
-                                <div className='grid-element'>
-                                    test 1
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
                                 </div>
                                 <div className='grid-element'>
-                                    test 2
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
                                 </div>
                                 <div className='grid-element'>
-                                    test 3
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                </div>
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
                                 </div>
 
                             </div>

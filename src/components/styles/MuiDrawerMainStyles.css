@@ -57,10 +57,17 @@
     background-color: rgba(55,55,55,1);
 }
 
-.grid-container{
+.grid-container-standard{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
+    text-align: start;
+    gap: 0;
+}
+
+.grid-container-small{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: start;
 }
 
 .grid-element{

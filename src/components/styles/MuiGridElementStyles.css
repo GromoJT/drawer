@@ -1,0 +1,17 @@
+.gridImageContainer{
+
+}
+.gridImageContainer img{
+    object-fit: cover;
+    height: 60px;
+    width: 105px;
+    border-radius: 5%;
+}
+
+.itemImage{
+    height: 90px;
+}
+
+.gridImageTitle{
+    font-size: small;
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Drawer,Box,Typography,IconButton,Grid, Backdrop, backdropClasses, Collapse, Fade, SwipeableDrawer} from '@mui/material'
 import React from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -12,27 +12,18 @@ const MuiDrawer = () => {
     
     const [isMobile,setIsMobile] = useState(false)
     const [isDrawerOpen,setIsDrowerOpen] = useState(false)
-
+    const [screanInnerWidth,setScreanInnerWidth] = useState(window.innerWidth)
+    const [drawerWidth,setDrawerWidth] = useState(350)
 
     const handleSetIsDrawerOpen = () => {
         setIsDrowerOpen(false);
     }
-
-    const standardSize = '450px'
-    const mobileSize = '325px'
     
-    function getWidth() {
-      return Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth,
-        document.body.offsetWidth,
-        document.documentElement.offsetWidth,
-        document.documentElement.clientWidth
-      );
-    }
+    
+  
 
-    console.log(getWidth())
-
+    console.log(screanInnerWidth)
+    
 
 
     return (
@@ -77,37 +68,28 @@ const MuiDrawer = () => {
       }
 
         <Drawer
-            
             anchor='left'
             open={isDrawerOpen} 
             variant='persistent'
             onClose={() => setIsDrowerOpen(false)}
             PaperProps={{
             sx:{
-                width:235,
+                
+                width:drawerWidth,
+                //Standard : 450
+                //Mobile : 250
                 overflowX:'hidden',
                 overflowY:'hidden',
                 p:0,
                 color:'black',
                 border:'none',
                 backgroundColor:'transparent',
-                
             }
-          }}
+          }}>
 
-          
-        >
-          <MuiDrawerMain/>
-          <MuiDrawerRight handleSetIsDrawerOpen={handleSetIsDrawerOpen}/>
-        {/* <Grid container spacing={0} sx={{flexGrow:1}} >
-            <Grid item xs={11}>
-                
-            </Grid>
-            <Grid item xs={1}>
-                
-            </Grid>
-
-        </Grid> */}
+          <MuiDrawerMain myWidth={drawerWidth-50}/>
+          <MuiDrawerRight myPosition={drawerWidth-50} handleSetIsDrawerOpen={handleSetIsDrawerOpen}/>
+        
       </Drawer>
       </>
     )
