@@ -9,6 +9,7 @@
     scrollbar-color: wheat #555555;
     padding-bottom: 0.7vh;
     margin-bottom: 0.7rem;
+    padding-right: 1vw;
 }
 
 .description-area::-webkit-scrollbar{
@@ -34,11 +35,13 @@
 
 .scroll-div{
     padding-top: 0.5rem;
+    
     overflow-y: auto;
-    min-height: 5vh;
-    max-height: 49vh;
+    min-height: 3vh;
+    max-height: 50vh;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
+    margin-bottom: 3vh;
 }
 
 .scroll-object{
@@ -83,13 +86,38 @@
 }
 
 .scroll-explanetion{
-    height: 3vh;
-    position: absolute;
-    bottom: 20vh;
-    width: 88%;
+    
+   
     
 }
 
-.scroll-explanetion hr{
-    width: 100%;
+
+
+.expTitle{
+   margin-bottom: 0.3vh;
+   text-align: start;
+   
+}
+
+.expArea{
+    min-height: 3vh;
+    max-height: 12vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: wheat #555555;
+    padding-bottom: 0.7vh;
+    margin-bottom: 0.7rem;
+    padding-right: 1vw;
+}
+
+.expArea::-webkit-scrollbar{
+    width: 0.5vw;
+}
+
+.expArea::-webkit-scrollbar-thumb{
+    background-color: wheat;
+}
+
+.expArea::-webkit-scrollbar-track{
+    background-color: rgba(55,55,55,1);
 }

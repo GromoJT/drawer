@@ -13,7 +13,7 @@ const MuiDrawer = () => {
     const [isMobile,setIsMobile] = useState(false)
     const [isDrawerOpen,setIsDrowerOpen] = useState(false)
     const [screanInnerWidth,setScreanInnerWidth] = useState(window.innerWidth)
-    const [drawerWidth,setDrawerWidth] = useState(350)
+    const [drawerWidth,setDrawerWidth] = useState(450)
 
     const handleSetIsDrawerOpen = () => {
         setIsDrowerOpen(false);

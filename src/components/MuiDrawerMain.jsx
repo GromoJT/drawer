@@ -73,7 +73,7 @@ const MuiDrawerMain = (props) => {
                 </Typography>
             </div>
 
-            <hr/>
+            <Divider sx={{background:'white'}}/>
 
             <div className='mods-icons-box'>
                 
@@ -145,27 +145,14 @@ const MuiDrawerMain = (props) => {
                         ?
                             
                             <div className={smallGrid?'grid-container-small':'grid-container-standard'}>
-
                                 <div className='grid-element'>
                                     <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
                                     <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
@@ -177,25 +164,13 @@ const MuiDrawerMain = (props) => {
                                     <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
-                                </div>
-                                <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
                                     <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
@@ -207,15 +182,17 @@ const MuiDrawerMain = (props) => {
                                     <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
                                 <div className='grid-element'>
-                                    <MuiDrawerGridElement img="https://picsum.photos/200/120" title="TEST 2"/>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
                                 </div>
-
+                                <div className='grid-element'>
+                                    <MuiDrawerGridElement img="https://thispersondoesnotexist.com/image" title="TEST"/>
+                                </div>
                             </div>
                         :
                             <div className='list-container'>
@@ -305,13 +282,30 @@ const MuiDrawerMain = (props) => {
                 </div>
             </div>
             <>
-            
-            <div className='scroll-explanetion'>
-            <hr/>
-                <div className='scroll-object'>
-                    <InfoOutlinedIcon/> TEST
+            <Box>
+                
+                <div className='scroll-explanetion'>
+                <Divider sx={{background:'white', marginBottom:'1vh'}}/>
+                    <Box component='div' sx={{display:'flex',alignItems:'center',marginBottom:'0.5rem'}}>
+                        <InfoOutlinedIcon/><Typography sx={{marginLeft:'0.5rem'}} variant='h5'>TEST</Typography>
+                    </Box>
+                    <div className='expArea'>
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                        Testowy opis czegoś czego jeszce nie ma...
+                    </div>
                 </div>
-            </div>
+            </Box>
             </>
             
 
