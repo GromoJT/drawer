@@ -1,5 +1,6 @@
-import { Box, Divider, IconButton, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Box, Divider, IconButton, TextField, Typography } from '@mui/material'
+
+import React, { useState } from 'react'
 import "./styles/MuiDrawerMainStyles.css";
 import MuiDrawerGridElement from './MuiDrawerGridElement';
 import MuiDrawerListElement from './MuiDrawerListElement';
@@ -7,35 +8,38 @@ import MuiDrawerListElement from './MuiDrawerListElement';
 import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
-import CheckIcon from '@mui/icons-material/Check';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CheckIcon from '@mui/icons-material/Check';
 
 import Data from '../data/data'
 
+
+
 const MuiDrawerMain = (props) => {
 
+ 
+  
+
     const [gridView,setGridView] = useState(true)
-    const [smallGrid,setSmallGrid] = useState(false)
+    const [edit,setEdit] = useState(true)
+
     const items = Data
     console.log(items)
-    useEffect(()=>{
-        console.log(props.myWidth)
-        if(props.myWidth<400){
-            setSmallGrid(true)
-        }
-        else{
-            setSmallGrid(false)
-        }
-    },[])
 
-
-    
-    
 
     const changeView = () =>{
         setGridView(!gridView)
     }
 
+    const handleSetEdit = () =>{
+        setEdit(!edit);
+    }
+    
+    const handleFinishEdit = () =>{
+        setEdit(!edit);
+    }
+
+    
   return (
     <Box 
         className='prevent-select'
@@ -43,122 +47,183 @@ const MuiDrawerMain = (props) => {
         role='presentation'
         sx={{
             color:'black',
-            height:'100%',
+            height:'100vh',
             width:props.myWidth,
-            //Standard : 400
-            //Mobile : 200
             background: "rgba(0,0,0,0.7)",
             backdropFilter: "blur(6px)",
         }}
     >
         <Box
         sx={{
-            
-            padding:'1.5rem',
+            marginTop:'1rem',
+            padding:'0.7rem',
             textAlign:'start',
-            color:'white'
+            color:'white',
+            height:'100vh'
         }}>
-            <div className='title-area'>
+            <Box 
+                //className='title-area'
+                sx={{
+                    height:'3vh',
+                    marginBottom:'1vh'
+                }}    
+            >
                 <Typography variant='h5' component='div'>
                     TEST        
                 </Typography>
-            </div>
-            <div className='description-area'>
-                <Typography variant='p' component='div' marginTop='1rem'>
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                    Testowy opis tego co widzimy na obrazku...
-                </Typography>
-            </div>
+            </Box>
+            <Box 
+                className='description-area'
+                sx={{
+                    height:'10vh',
+                    paddingTop:'0.5vh',
+                    paddingBottom:'0.5vh',
+                    marginBottom:'1vh',
+                    paddingRight:'1rem'
+                }}
+            >
+                {
+                    edit
+                    ?
+                    <Typography variant='p' component='div'>
+                        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+                    </Typography>
+                    :
+                    <form noValidate autoComplete="off" style={{color:'white'}}>
+                        <TextField
+                            defaultValue={'. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  '}
+                            fullWidth
+                            required
+                            InputProps={{
+                                style:{color:'white'}
+                            }}
+                            sx={{
+                                border:'1px soild white',borderRadius:1,
+                            }}
+                            multiline
+                        />
+                    </form>
+                    
+                }
+                
+            </Box>
 
             <Divider sx={{background:'white'}}/>
 
-            <div className='mods-icons-box'>
+            <Box className='mods-icons-box'>
+            
+            {edit
+            ?
+            <>
+            {
+                gridView?
+                <>
+                    <IconButton
+                    disabled
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='grid view'
+                    >
+                        <WindowIcon/>
+                    </IconButton>
+                
+                    <IconButton
+                    onClick={changeView}
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='list view'
+                    
+                    >
+                        <ViewListIcon />
+                    </IconButton>
+                </>
+                :
+                <>
+                    <IconButton
+                    
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='grid view'
+                    onClick={changeView}
+                    >
+                        <WindowIcon/>
+                    </IconButton>
+                
+                    <IconButton
+                    disabled
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='list view'
+                    >
+                        <ViewListIcon />
+                    </IconButton>
+                </>
+            }
+            </>
+            :
+                null
+            }
+            
                 
                 {
-                    gridView?
-                    <>
-                        <IconButton
-                        disabled
-                        size='small'
-                        edge='start'
-                        color='inherit'
-                        aria-label='grid view'
-                        >
-                            <WindowIcon/>
-                        </IconButton>
-                    
-                        <IconButton
-                        onClick={changeView}
-                        size='small'
-                        edge='start'
-                        color='inherit'
-                        aria-label='list view'
-                        >
-                            <ViewListIcon />
-                        </IconButton>
-                    </>
+                    edit
+                    ?
+                    <IconButton
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='edit'
+                    onClick={handleSetEdit}
+                   >
+                       <EditIcon />
+                   </IconButton>
                     :
-                    <>
-                        <IconButton
-                        
-                        size='small'
-                        edge='start'
-                        color='inherit'
-                        aria-label='grid view'
-                        onClick={changeView}
-                        >
-                            <WindowIcon/>
-                        </IconButton>
-                    
-                        <IconButton
-                        disabled
-                        size='small'
-                        edge='start'
-                        color='inherit'
-                        aria-label='list view'
-                        >
-                            <ViewListIcon />
-                        </IconButton>
-                    </>
+                    <IconButton
+                    size='small'
+                    edge='start'
+                    color='inherit'
+                    aria-label='edit'
+                    onClick={handleFinishEdit}
+                    >
+                        <CheckIcon />
+                    </IconButton>
                 }
+
                 
+            </Box>
                 
+            <Box
+            sx={{
+                height:'50vh',
+            }}>
 
-                <IconButton
-                 size='small'
-                 edge='start'
-                 color='inherit'
-                 aria-label='edit'
-                >
-                    <EditIcon />
-                </IconButton>
-            </div>
-
-
-            <div className='scroll-div'>
-                <div className='scroll-object'>
+            <Box className='scroll-div'>
+                <Box className='scroll-object'>
                     {
                         gridView
                         ?
                             
-                            <div className={smallGrid?'grid-container-small':'grid-container-standard'}>
+                            <Box className={props.isMobile?'grid-container-small':'grid-container-standard'}>
                                 {
                    
                                     items.map( item => {
                                             // console.log(item)
                                             return(
                                                 <div className='grid-element' key={item.id}>
-                                                <MuiDrawerGridElement img={item.img} title={item.title}/>
+                                                <MuiDrawerGridElement img={item.img} title={item.title} edit={edit}/>
                                                 </div>
                                             )
                                     }) 
                                 }
                                 
                                
-                            </div>
+                            </Box>
                         :
-                            <div className='list-container'>
+                            <Box className='list-container'>
 
                             {
                             
@@ -166,7 +231,7 @@ const MuiDrawerMain = (props) => {
                                         // console.log(item)
                                         return(
                                             <div className='list-element' key={item.id}>
-                                                <MuiDrawerListElement img={item.img} title={item.title} />
+                                                <MuiDrawerListElement img={item.img} title={item.title} edit={edit}/>
                                             </div>
                                         )
                                 }) 
@@ -174,30 +239,42 @@ const MuiDrawerMain = (props) => {
 
                                 
                                 
-                            </div>
+                            </Box>
                     }
-                </div>
-            </div>
-            <>
-            <Box>
-                
-                <div className='scroll-explanetion'>
-                <Divider sx={{background:'white', marginBottom:'1vh'}}/>
-                    <Box component='div' sx={{display:'flex',alignItems:'center',marginBottom:'0.5rem'}}>
-                        <InfoOutlinedIcon/><Typography sx={{marginLeft:'0.5rem'}} variant='h5'>TEST</Typography>
-                    </Box>
-                    <div className='expArea'>
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                        Testowy opis czegoś czego jeszce nie ma...
-                    </div>
-                </div>
+                </Box>
             </Box>
-            </>
-            
-
+            <Divider sx={{background:'white',marginTop:'1rem',marginBottom:'1rem'}}/>  
+                <Box className='scroll-explanetion'>
+                    <Box component='div' sx={{display:'flex',alignItems:'center'}}>
+                        <InfoOutlinedIcon/><Typography sx={{marginLeft:'0.5rem'}} variant='h6'>TEST</Typography>
+                    </Box>
+                    {
+                        edit
+                        ?
+                        <Box className='expArea'>
+                         . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  
+                        </Box>
+                        :
+                        <Box className='expArea'>
+                        <form noValidate autoComplete="off" style={{color:'white'}}>
+                        <TextField
+                            defaultValue={'. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  '}
+                            fullWidth
+                            required
+                            InputProps={{
+                                style:{color:'white'}
+                            }}
+                            sx={{
+                                border:'1px soild white',borderRadius:1,
+                            }}
+                            multiline
+                        />
+                        </form>
+                        </Box>
+                    }
+                    
+                </Box>
+            </Box>
         </Box>
         
     </Box>     
@@ -205,3 +282,10 @@ const MuiDrawerMain = (props) => {
 }
 
 export default MuiDrawerMain
+
+
+/*
+<>
+    
+</>
+*/

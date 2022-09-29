@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material"
 import React from "react"
 import './styles/MuiGridElementStyles.css'
 
@@ -12,9 +13,23 @@ const MuiDrawerGridElement = (props) => {
             alt={props.title}
         />
       </div>
-      <div className="gridImageTitle">
-      {props.title}
-      </div>
+      {
+          props.edit
+          ?
+          <div className="gridImageTitle">
+            {props.title}
+          </div>
+          :
+          <TextField 
+            size="small" 
+            defaultValue={props.title} 
+            width="85%"
+            required
+            InputProps={{
+              style:{color:'white'}
+            }}
+            />
+        }
       
       
     </>

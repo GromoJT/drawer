@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material"
 import React from "react"
 import './styles/MuiListElementStyles.css'
 
@@ -10,9 +11,25 @@ const MuiDrawerListElement = (props) => {
             loading="lazy"
             alt={props.title}
         />
-        <div className="listImageTitle">
-          {props.title}
-        </div>
+        {
+          props.edit
+          ?
+          <div className="listImageTitle">
+            {props.title}
+          </div>
+          :
+          <TextField 
+            size="small" 
+            defaultValue={props.title} 
+            sx={{paddingLeft:'0.5rem'}}
+            fullWidth
+            required
+            InputProps={{
+              style:{color:'white'}
+            }}
+            />
+        }
+        
       </div>
       
     </>

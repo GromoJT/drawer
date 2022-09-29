@@ -1,15 +1,12 @@
 .title-area{
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.1rem;
 }
 .description-area{
-    min-height: 2vh;
-    max-height: 11vh;
+    
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    padding-bottom: 0.7vh;
-    margin-bottom: 0.7rem;
-    padding-right: 1vw;
+    
 }
 
 .description-area::-webkit-scrollbar{
@@ -35,16 +32,17 @@
 
 .scroll-div{
     padding-top: 0.5rem;
+    padding-bottom: 1rem;
     overflow-y: auto;
-    min-height: 3vh;
-    max-height: 42vh;
+    height:45vh;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    margin-bottom: 5vh;
+    margin: auto auto;
 }
 
 .scroll-object{
-    color: wheat;
+    color: white;
+    font-size: small;
 }
 
 .scroll-div::-webkit-scrollbar{
@@ -74,6 +72,7 @@
 
 .grid-element{
     margin: 0.5vh;
+    margin-top: 1vh;
 }
 
 .list-container{
@@ -82,26 +81,21 @@
 
 .list-element{
     margin: 0.5vh;
+    margin-bottom: 1vh;
 }
 
 .scroll-explanetion{
-    position: fixed;
-    bottom: 0;
-    padding-right: 1.5rem;
-    padding-bottom: 1rem;
+
 }
 
 
 
 .expTitle{
-   margin-bottom: 0.3vh;
    text-align: start;
-   
 }
 
 .expArea{
-    min-height: 3vh;
-    max-height: 12vh;
+    height: 10vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;

@@ -3,7 +3,7 @@ const Data = [
     {
         id:1,
         img:"https://thispersondoesnotexist.com/image",
-        title:"TEST 1"
+        title:"test 1 test 1 test 1"
     },
     {
         id:2,
@@ -15,6 +15,7 @@ const Data = [
         img:"https://random.dog/e5ccde95-9fce-4eaf-8500-5d5fbe43cb56.jpg",
         title:"TEST 3"
     },
+    
     {
         id:4,
         img:"https://purr.objects-us-east-1.dream.io/i/ddJ2vs2.jpg",
