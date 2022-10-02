@@ -1,6 +1,5 @@
 html{
-  background: url('imgs/back.jpg') no-repeat center center fixed;
-  resize: none;
+
 }
 
 
@@ -11,10 +10,7 @@ body {
 }
 
 .container {
-  font-size: 3rem;
-  margin: auto;
-  max-width: 800px;
-  margin-top: 20px;
+
 }
 
 .prevent-select {

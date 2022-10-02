@@ -21,12 +21,13 @@ const MuiDrawerGridElement = (props) => {
           </div>
           :
           <TextField 
+            className="gridElementTitleEdit"
             size="small" 
             defaultValue={props.title} 
             width="85%"
             required
             InputProps={{
-              style:{color:'white'}
+              style:{color:'white',margin:'none',padding:'0',}
             }}
             />
         }
