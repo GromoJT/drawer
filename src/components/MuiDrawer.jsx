@@ -31,9 +31,9 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
       breakpoints: {
         values: {
         
-          sm: 435,
-          md: 650,
-          lg: 735,
+          sm: 650,
+          md: 1200,
+          lg: 2000,
         
         },
       },
