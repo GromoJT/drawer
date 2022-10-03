@@ -30,35 +30,40 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
     const theme = createTheme({
       breakpoints: {
         values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1200,
-          xl: 1536,
-          xxl:2000,
+        
+          sm: 435,
+          md: 650,
+          lg: 735,
+        
         },
       },
     });
 
-    const underSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const UnderSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const AboveSMButtUnderMD = useMediaQuery(theme.breakpoints.down('md'))
+    const AboveLG = useMediaQuery(theme.breakpoints.up('lg'))
+
     const underXL = useMediaQuery(theme.breakpoints.down('xl'));
+
     const aboveXXL = useMediaQuery(theme.breakpoints.up('xxl'));
+    const underLG = useMediaQuery(theme.breakpoints.down('lg'));
+    const aboveLGBunderXXL = useMediaQuery(theme.breakpoints.down('xxl'));
 
     let dw
     let isMobile
     let isLarge
 
-    if(aboveXXL){
+    if(AboveLG){
       dw=750
       isMobile=false
       isLarge=true
     }
-    else if(underSM){
+    else if(UnderSM){
       dw=350
       isMobile=true
       isLarge=false
     }
-    else{
+    else if(AboveSMButtUnderMD){
       dw=450
       isMobile=false
       isLarge=false
