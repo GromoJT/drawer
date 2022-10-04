@@ -25,6 +25,7 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
 
     const handleSetIsDrawerOpen = () => {
         setIsDrowerOpen(false);
+        window.top.postMessage('hello')
     }
 
     const theme = createTheme({
@@ -63,7 +64,7 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
       isMobile=true
       isLarge=false
     }
-    else if(AboveSMButtUnderMD){
+    else{
       dw=450
       isMobile=false
       isLarge=false

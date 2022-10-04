@@ -24,7 +24,7 @@ const MuiDrawerMain = (props) => {
     const [edit,setEdit] = useState(true)
 
     const items = Data
-    console.log(items)
+    //console.log(items)
 
 
     const changeView = () =>{
