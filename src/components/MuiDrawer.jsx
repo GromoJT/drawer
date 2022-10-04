@@ -25,14 +25,15 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
 
     const handleSetIsDrawerOpen = () => {
         setIsDrowerOpen(false);
-        window.top.postMessage('hello')
+        window.top.postMessage('sidePanelClosed','*')
+        console.log('go!')
     }
 
     const theme = createTheme({
       breakpoints: {
         values: {
         
-          sm: 650,
+          sm: 450,
           md: 1200,
           lg: 2000,
         
@@ -77,7 +78,10 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
             anchor='left'
             open={isDrawerOpen} 
             variant='persistent'
-            onClose={() => setIsDrowerOpen(false)}
+            onClose={() => {
+              setIsDrowerOpen(false)
+              window.top.postMessage('sidePanelClosed','*') ;
+            }}
             PaperProps={{
             sx:{
                 
@@ -122,7 +126,13 @@ const [isDrawerOpen,setIsDrowerOpen] = useState(false)
         edge='start'
         color='inherit'
         aria-label='logo'
-        onClick={()=>setIsDrowerOpen(true)}
+        onClick={()=>
+        {
+          setIsDrowerOpen(true);
+          window.top.postMessage('sidePanelOpened','*') ;
+          console.log("droawer side opened")   
+        }
+      }
         disabled={isDrawerOpen}
         
         style={{
