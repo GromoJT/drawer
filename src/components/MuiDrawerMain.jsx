@@ -184,7 +184,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://tidy-poems-sniff-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://shaky-rules-say-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
