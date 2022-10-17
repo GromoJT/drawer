@@ -6,7 +6,7 @@ import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
-import MuiDrawerRight from "./MuiDrawerRight";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
@@ -31,16 +31,11 @@ const MuiDrawerMain = () => {
         setEdit(!edit);
 
         if(!edit){
-            //console.log('Uruchomiono tryb edycji!')
             setTempDescription(description)
-            //console.log("Zapisany opis: "+ description)
             handleSetTempPanosNames()
-            //console.log("Zapisano nazwy panonów!")
         }
         else{
-            //console.log("Kończenie edycji...")
             handleFinishEdit()
-            //console.log("Wysyłanie zakończone")
         }
     }
 
@@ -152,11 +147,9 @@ const MuiDrawerMain = () => {
         setOpen(!open)
         if(open){
             window.top.postMessage('sidePanelClosed','*')
-            //console.log("zamykam panel")
         }
         else{
             window.top.postMessage('sidePanelOpened','*')
-            //console.log("otwieram panel")
         }
         
     }
@@ -164,7 +157,8 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://thirty-impalas-greet-78-9-119-83.loca.lt") return;
+            console.log(e)
+            if(e.origin !== "https://good-plums-sip-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -186,7 +180,11 @@ const MuiDrawerMain = () => {
   return (
          <div className='main-drawer-box' 
             >
-            <MuiDrawerRight handleSetOpen={handleSetOpen} open={open}/>
+            <div className='drawer-dongle'>
+                <button className='drawer-dongle-button' onClick={()=>{handleSetOpen()}}>
+                    <ArrowBackIosIcon className={`${open ? "arrowRight" : "arrowLeft"}`}/>
+                </button>
+            </div>
             
                 <div className='main-drawer-heading' >
                     <div className='main-drawer-heading-title'>
