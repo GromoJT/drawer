@@ -1,17 +1,14 @@
-import { Box, IconButton, TextField, Typography } from '@mui/material'
-
+import {Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import "./styles/MuiDrawerMainStyles.css";
+import "./styles/uber_styles.css";
 import MuiDrawerElement from './MuiDrawerElement';
 import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
-
 import MuiDrawerRight from "./MuiDrawerRight";
 
 const MuiDrawerMain = () => {
-
     const [gridView,setGridView] = useState(true)
     const [edit,setEdit] = useState(false)
     const [items,setItems] = useState([])
@@ -19,40 +16,31 @@ const MuiDrawerMain = () => {
     const [description,setDescription] = useState("Lorem ipsum")
     const [galleryContentUrl,setGalleryContentUrl] = useState("")
     const [galleryId,setGalleryId] = useState("")
-
     const [tempDescription,setTempDescription] = useState("")
     const [tempPanosNames,setTempPanosNames] = useState([])
     const [activePanon,setActivePanon] = useState(0)
-
-    const [changeAccumulator,setChangeAccumulator] = useState([])
-    const [updateFlag,setUpdateFlag] = useState(false)
-
     const [open,setOpen] = useState(true)
-
-    let ch = []
-
-
-
+    let changeAccumulator = []
 
     const changeView = () =>{  
         setGridView(!gridView)
-        console.log(gridView)
+        //console.log(gridView)
     }
 
     const handleSetEditStatusChange = () =>{
         setEdit(!edit);
 
         if(!edit){
-            console.log('Uruchomiono tryb edycji!')
+            //console.log('Uruchomiono tryb edycji!')
             setTempDescription(description)
-            console.log("Zapisany opis: "+ description)
+            //console.log("Zapisany opis: "+ description)
             handleSetTempPanosNames()
-            console.log("Zapisano nazwy panonów!")
+            //console.log("Zapisano nazwy panonów!")
         }
         else{
-            console.log("Kończenie edycji...")
+            //console.log("Kończenie edycji...")
             handleFinishEdit()
-            console.log("Wysyłanie zakończone")
+            //console.log("Wysyłanie zakończone")
         }
     }
 
@@ -63,24 +51,21 @@ const MuiDrawerMain = () => {
     }
 
     const handleDescriptionUpdateMSG = () =>{
-        if(description!==tempDescription){
-            setUpdateFlag(true)
-            ch.push({
+        if(description!==tempDescription){  
+            changeAccumulator.push({
                 holderId : galleryId,
                 propertyName:"description",
                 type : "GALLERY",
                 value : description
             })
-        console.log(ch)    
+        console.log(changeAccumulator)    
     }
         
     }
 
     const handlePanosUpdateMSG = () => {
         for( let i = 0 ; i< tempPanosNames.length ; i++){
-   
-            if(items[i].PName !== tempPanosNames[i].name){
-                setUpdateFlag(true)
+            if(items[i].PName !== tempPanosNames[i].name){   
                 let tempType  
                 if(items[i].PType == "video/mp4"){
                     tempType = "VIDEO"
@@ -88,7 +73,7 @@ const MuiDrawerMain = () => {
                 else{
                     tempType = "PANO"
                 }
-                ch.push({
+                changeAccumulator.push({
                     holderId : items[i].SID,
                     propertyName:"panoName",
                     type : "PANO",
@@ -105,21 +90,16 @@ const MuiDrawerMain = () => {
             let msg = {
                 command : "Update",
                 galleryId : galleryId,
-                ch : ch
+                ch : changeAccumulator
             }
             window.top.postMessage(msg,'*') 
-        ch = []
+        changeAccumulator = []
         setTempPanosNames([])
         setTempDescription("")
-        setChangeAccumulator([])
         console.log('wysłano zmiany')
     }
 
     
-
-    const handleTitleUpdate = (event)=>{
-        setTitle(event.target.value)
-    }
 
     const handleDescriptionUpdate = (event)=>{
         setDescription(event.target.value)
@@ -172,11 +152,11 @@ const MuiDrawerMain = () => {
         setOpen(!open)
         if(open){
             window.top.postMessage('sidePanelClosed','*')
-            console.log("zamykam panel")
+            //console.log("zamykam panel")
         }
         else{
             window.top.postMessage('sidePanelOpened','*')
-            console.log("otwieram panel")
+            //console.log("otwieram panel")
         }
         
     }
@@ -184,7 +164,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://shaky-rules-say-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://ninety-lemons-shine-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -203,113 +183,59 @@ const MuiDrawerMain = () => {
 
     },[])
     
-   
-    
-    
-    
   return (
-       
-
-        
-         <Box className='main-drawer-box' 
+         <div className='main-drawer-box' 
             >
             <MuiDrawerRight handleSetOpen={handleSetOpen} open={open}/>
             
-                <Box className='main-drawer-heading' >
-                    <Box className='main-drawer-heading-title'>
+                <div className='main-drawer-heading' >
+                    <div className='main-drawer-heading-title'>
                         <Typography variant='h5' component='div'>
                             {title}
                         </Typography>
-                    </Box>
+                    </div>
                     {
                     !edit ?
-                    <Box className='main-drawer-heading-descriptiopn'>
+                    <div className='main-drawer-heading-descriptiopn'>
                         {description}
-                    </Box>
+                    </div>
                     :
                     <form className='description-form' noValidate autoComplete="off">
                         
-                        <TextField
+                        <textarea
                             defaultValue={description}
                             onChange={handleDescriptionUpdate}
-                            fullWidth
-                            required
-                            InputProps={{
-                                style:{
-                                    color:'white',
-                                    fontSize: 'small',
-                                    letterSpacing:'0px',
-                                    height:"100%",
-                                    rows:"3",
-                                    overflow:'auto',
-                                    padding:'0.2rem',  
-                                }
-                            }}
-                            sx={{
-                                letterSpacing:"0px",
-                                lineHeight:'-1',
-                            }}
-                            variant='outlined'
-                            multiline
                         />
                     </form>
                     }
-                </Box>
-                <Box className='main-drawer-controls'>
+                </div>
+                <div className='main-drawer-controls'>
                 { 
                     <>
-                        <IconButton
-                        className={`${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
-                        sx={{
-                            padding:'0px',
-                            margin:'0px',
-                            width:'30px',
-                            height:'30px',
-                        }}
+                        <button
+                        className={` icon-button-base-0-0-30-30 ${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
                         disabled={gridView}
-                        edge='start'
-                        color='inherit'
-                        onClick={changeView}
-                        >
-                            <WindowIcon sx={{height:'20px',width:'20px'}} />
-                        </IconButton>
+                        onClick={changeView}>
+                            <WindowIcon className='control-icons-grid' />
+                        </button>
                     
-                        <IconButton
-                        className={`${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
-                        sx={{
-                            padding:'0px',
-                            margin:'0px',
-                            width:'30px',
-                            height:'30px',
-                        }}
+                        <button
+                        className={` icon-button-base-0-0-30-30 ${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
                         disabled={!gridView}
-                        onClick={changeView}
-                        edge='start'
-                        color='inherit'>
-                            <ViewListIcon sx={{height:'30px'}}/>
-                        </IconButton>
+                        onClick={changeView}>
+                            <ViewListIcon className='control-icons-list'/>
+                        </button>
 
-                        <IconButton
-                            sx={{
-                                padding:'0px',
-                                margin:'0px',
-                                width:'30px',
-                                height:'30px',
-                            }}
-                            edge='start'
-                            color='inherit'
+                        <button className="icon-button-base-0-0-30-30"
                             onClick={handleSetEditStatusChange}>
                             {
-                                edit?<CheckIcon  sx={{height:'20px'}}/>:<EditIcon sx={{height:'20px'}}/>
+                                edit?<CheckIcon className="control-icons-edit-accept"/>:<EditIcon className="control-icons-edit-accept"/>
                             }
-                        </IconButton>
-                            
-                       
-                    
+                        </button>   
                     </>
                     }
-                </Box>
-                <Box className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
+                </div>
+                <div className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
                     {
                         items.map( (item,index) => {
                             
@@ -318,10 +244,10 @@ const MuiDrawerMain = () => {
                             )
                         }) 
                     }
-                </Box>
+                </div>
             
             
-         </Box>
+         </div>
       
   )
 }
