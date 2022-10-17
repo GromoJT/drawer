@@ -164,7 +164,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://ninety-lemons-shine-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://thirty-impalas-greet-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
