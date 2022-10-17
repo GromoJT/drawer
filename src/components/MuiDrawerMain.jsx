@@ -1,291 +1,331 @@
-import { Box, Divider, IconButton, TextField, Typography } from '@mui/material'
+import { Box, IconButton, TextField, Typography } from '@mui/material'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./styles/MuiDrawerMainStyles.css";
-import MuiDrawerGridElement from './MuiDrawerGridElement';
-import MuiDrawerListElement from './MuiDrawerListElement';
-
+import MuiDrawerElement from './MuiDrawerElement';
 import WindowIcon from '@mui/icons-material/Window';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CheckIcon from '@mui/icons-material/Check';
 
-import Data from '../data/data'
+import MuiDrawerRight from "./MuiDrawerRight";
 
-
-
-const MuiDrawerMain = (props) => {
-
- 
-  
+const MuiDrawerMain = () => {
 
     const [gridView,setGridView] = useState(true)
-    const [edit,setEdit] = useState(true)
+    const [edit,setEdit] = useState(false)
+    const [items,setItems] = useState([])
+    const [title,setTitle] = useState("TEST")
+    const [description,setDescription] = useState("Lorem ipsum")
+    const [galleryContentUrl,setGalleryContentUrl] = useState("")
+    const [galleryId,setGalleryId] = useState("")
 
-    const items = Data
-    //console.log(items)
+    const [tempDescription,setTempDescription] = useState("")
+    const [tempPanosNames,setTempPanosNames] = useState([])
+    const [activePanon,setActivePanon] = useState(0)
+
+    const [changeAccumulator,setChangeAccumulator] = useState([])
+    const [updateFlag,setUpdateFlag] = useState(false)
+
+    const [open,setOpen] = useState(true)
+
+    let ch = []
 
 
-    const changeView = () =>{
+
+
+    const changeView = () =>{  
         setGridView(!gridView)
+        console.log(gridView)
     }
 
-    const handleSetEdit = () =>{
+    const handleSetEditStatusChange = () =>{
         setEdit(!edit);
+
+        if(!edit){
+            console.log('Uruchomiono tryb edycji!')
+            setTempDescription(description)
+            console.log("Zapisany opis: "+ description)
+            handleSetTempPanosNames()
+            console.log("Zapisano nazwy panonów!")
+        }
+        else{
+            console.log("Kończenie edycji...")
+            handleFinishEdit()
+            console.log("Wysyłanie zakończone")
+        }
     }
+
+    const handleSetTempPanosNames = () =>{
+        for(let i = 0 ; i < items.length ; i++){
+            setTempPanosNames( (tempPanosNames) => [...tempPanosNames ,{ name : items[i].PName }  ])
+        }  
+    }
+
+    const handleDescriptionUpdateMSG = () =>{
+        if(description!==tempDescription){
+            setUpdateFlag(true)
+            ch.push({
+                holderId : galleryId,
+                propertyName:"description",
+                type : "GALLERY",
+                value : description
+            })
+        console.log(ch)    
+    }
+        
+    }
+
+    const handlePanosUpdateMSG = () => {
+        for( let i = 0 ; i< tempPanosNames.length ; i++){
+   
+            if(items[i].PName !== tempPanosNames[i].name){
+                setUpdateFlag(true)
+                let tempType  
+                if(items[i].PType == "video/mp4"){
+                    tempType = "VIDEO"
+                }
+                else{
+                    tempType = "PANO"
+                }
+                ch.push({
+                    holderId : items[i].SID,
+                    propertyName:"panoName",
+                    type : "PANO",
+                    value : items[i].PName
+                })
+            }
+        }
+    }
+    
     
     const handleFinishEdit = () =>{
-        setEdit(!edit);
+        handleDescriptionUpdateMSG();
+        handlePanosUpdateMSG();
+            let msg = {
+                command : "Update",
+                galleryId : galleryId,
+                ch : ch
+            }
+            window.top.postMessage(msg,'*') 
+        ch = []
+        setTempPanosNames([])
+        setTempDescription("")
+        setChangeAccumulator([])
+        console.log('wysłano zmiany')
     }
 
     
+
+    const handleTitleUpdate = (event)=>{
+        setTitle(event.target.value)
+    }
+
+    const handleDescriptionUpdate = (event)=>{
+        setDescription(event.target.value)
+    }
+
+    const handlePanosUpdate = (event,id) => {
+        let ChangedPanonId = id
+        items[ChangedPanonId].PName=event.target.value
+    }
+
+    const initDescription = (e) =>{
+        setDescription(e.data.GalleryDescription)
+    }
+
+    
+    const initTitle = (e) =>{
+        setTitle(e.data.GalleryName)
+    }
+    
+    const initItems = (e,videos) => {
+        setItems(e.data.GalleryPanos)
+        if(videos.length>0){
+            for(let i = 0 ; i<videos.length ; i++ ){
+                setItems( (items) => [...items ,{ CID : videos[i].CID, PName : videos[i].PName, PThumbnailId : videos[i].PThumbnailId, PType : videos[i].PType, SID: videos[i].SID }  ])
+            }
+        }
+    }
+
+    const initGalleryContentUrl = (e) =>{
+        setGalleryContentUrl(e.data.GalleryContentUrl)
+    }
+    
+    const initGalleryId = (e) =>{
+        setGalleryId(e.data.GalleryID)
+    }
+
+    const handleClickOnPanon = (panomId,key) => {
+        if(!edit){
+            let msg = {
+                command : "PanoClicked",
+                id : panomId
+            }
+        window.top.postMessage(msg,'*') ;
+        }
+        setActivePanon(key)
+        
+    }
+
+    const handleSetOpen = () =>{
+        setOpen(!open)
+        if(open){
+            window.top.postMessage('sidePanelClosed','*')
+            console.log("zamykam panel")
+        }
+        else{
+            window.top.postMessage('sidePanelOpened','*')
+            console.log("otwieram panel")
+        }
+        
+    }
+    
+
+    useEffect(()=>{
+        window.addEventListener('message',function(e){
+            if(e.origin !== "https://tidy-poems-sniff-78-9-119-83.loca.lt") return;
+            initTitle(e)
+            initDescription(e)
+            initGalleryId(e)
+            initGalleryContentUrl(e)
+            initItems(e,e.data.GalleryVideos)
+        },false);
+
+        let msg = {
+            command:"readyToGetData",
+        }
+        window.top.postMessage(msg,'*') ;
+
+        return () =>{
+            window.removeEventListener('message',initDescription(e),false);
+        };
+
+    },[])
+    
+   
+    
+    
+    
   return (
-    <Box 
-        className='prevent-select'
-        textAlign='center' 
-        role='presentation'
-        sx={{
-            color:'black',
-            height:'100vh',
-            width:props.myWidth,
-            background: "rgba(0,0,0,0.7)",
-            backdropFilter: "blur(6px)",
-        }}
-    >
-        <Box
-        sx={{
-            marginTop:'1rem',
-            padding:'0.7rem',
-            textAlign:'start',
-            color:'white',
-            height:'100vh'
-        }}>
-            <Box 
-                //className='title-area'
-                sx={{
-                    height:'3vh',
-                    marginBottom:'1vh'
-                }}    
+       
+
+        
+         <Box className='main-drawer-box' 
             >
-                <Typography variant='h5' component='div'>
-                    TEST        
-                </Typography>
-            </Box>
-            <Box 
-                className='description-area'
-                sx={{
-                    height:'10vh',
-                    paddingTop:'0.5vh',
-                    paddingBottom:'0.5vh',
-                    marginBottom:'1vh',
-                    paddingRight:'1rem'
-                }}
-            >
-                {
-                    edit
-                    ?
-                    <Typography variant='p' component='div'>
-                        . . .
-                    </Typography>
+            <MuiDrawerRight handleSetOpen={handleSetOpen} open={open}/>
+            
+                <Box className='main-drawer-heading' >
+                    <Box className='main-drawer-heading-title'>
+                        <Typography variant='h5' component='div'>
+                            {title}
+                        </Typography>
+                    </Box>
+                    {
+                    !edit ?
+                    <Box className='main-drawer-heading-descriptiopn'>
+                        {description}
+                    </Box>
                     :
-                    <form noValidate autoComplete="off" style={{color:'white'}}>
+                    <form className='description-form' noValidate autoComplete="off">
+                        
                         <TextField
-                            defaultValue={'. . .'}
+                            defaultValue={description}
+                            onChange={handleDescriptionUpdate}
                             fullWidth
                             required
                             InputProps={{
-                                style:{color:'white'}
+                                style:{
+                                    color:'white',
+                                    fontSize: 'small',
+                                    letterSpacing:'0px',
+                                    height:"100%",
+                                    rows:"3",
+                                    overflow:'auto',
+                                    padding:'0.2rem',  
+                                }
                             }}
                             sx={{
-                                border:'1px soild white',borderRadius:1,
+                                letterSpacing:"0px",
+                                lineHeight:'-1',
                             }}
+                            variant='outlined'
                             multiline
                         />
                     </form>
-                    
-                }
-                
-            </Box>
-
-            <Divider sx={{background:'white'}}/>
-
-            <Box className='mods-icons-box'>
-            
-            {edit
-            ?
-            <>
-            {
-                gridView?
-                <>
-                    <IconButton
-                    disabled
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='grid view'
-                    >
-                        <WindowIcon/>
-                    </IconButton>
-                
-                    <IconButton
-                    onClick={changeView}
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='list view'
-                    
-                    >
-                        <ViewListIcon />
-                    </IconButton>
-                </>
-                :
-                <>
-                    <IconButton
-                    
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='grid view'
-                    onClick={changeView}
-                    >
-                        <WindowIcon/>
-                    </IconButton>
-                
-                    <IconButton
-                    disabled
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='list view'
-                    >
-                        <ViewListIcon />
-                    </IconButton>
-                </>
-            }
-            </>
-            :
-                null
-            }
-            
-                
-                {
-                    edit
-                    ?
-                    <IconButton
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='edit'
-                    onClick={handleSetEdit}
-                   >
-                       <EditIcon />
-                   </IconButton>
-                    :
-                    <IconButton
-                    size='small'
-                    edge='start'
-                    color='inherit'
-                    aria-label='edit'
-                    onClick={handleFinishEdit}
-                    >
-                        <CheckIcon />
-                    </IconButton>
-                }
-
-                
-            </Box>
-                
-            <Box
-            sx={{
-                height:'50vh',
-            }}>
-
-            <Box className='scroll-div'>
-                <Box className='scroll-object'>
-                    {
-                        gridView
-                        ?
-                            
-                            <Box className={props.isMobile?'grid-container-small':'grid-container-standard'}>
-                                {
-                   
-                                    items.map( item => {
-                                            // console.log(item)
-                                            return(
-                                                <div className='grid-element' key={item.id}>
-                                                <MuiDrawerGridElement img={item.img} title={item.title} edit={edit}/>
-                                                </div>
-                                            )
-                                    }) 
-                                }
-                                
-                               
-                            </Box>
-                        :
-                            <Box className='list-container'>
-
-                            {
-                            
-                                items.map( item => {
-                                        // console.log(item)
-                                        return(
-                                            <div className='list-element' key={item.id}>
-                                                <MuiDrawerListElement img={item.img} title={item.title} edit={edit}/>
-                                            </div>
-                                        )
-                                }) 
-                            }
-
-                                
-                                
-                            </Box>
                     }
                 </Box>
-            </Box>
-            <Divider sx={{background:'white',marginTop:'1rem',marginBottom:'1rem'}}/>  
-                <Box className='scroll-explanetion'>
-                    <Box component='div' sx={{display:'flex',alignItems:'center'}}>
-                        <InfoOutlinedIcon/><Typography sx={{marginLeft:'0.5rem'}} variant='h6'>TEST</Typography>
-                    </Box>
-                    {
-                        edit
-                        ?
-                        <Box className='expArea'>
-                         . . .
-                        </Box>
-                        :
-                        <Box className='expArea'>
-                        <form noValidate autoComplete="off" style={{color:'white'}}>
-                        <TextField
-                            defaultValue={'. . . '}
-                            fullWidth
-                            required
-                            InputProps={{
-                                style:{color:'white'}
-                            }}
+                <Box className='main-drawer-controls'>
+                { 
+                    <>
+                        <IconButton
+                        className={`${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
+                        sx={{
+                            padding:'0px',
+                            margin:'0px',
+                            width:'30px',
+                            height:'30px',
+                        }}
+                        disabled={gridView}
+                        edge='start'
+                        color='inherit'
+                        onClick={changeView}
+                        >
+                            <WindowIcon sx={{height:'20px',width:'20px'}} />
+                        </IconButton>
+                    
+                        <IconButton
+                        className={`${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
+                        sx={{
+                            padding:'0px',
+                            margin:'0px',
+                            width:'30px',
+                            height:'30px',
+                        }}
+                        disabled={!gridView}
+                        onClick={changeView}
+                        edge='start'
+                        color='inherit'>
+                            <ViewListIcon sx={{height:'30px'}}/>
+                        </IconButton>
+
+                        <IconButton
                             sx={{
-                                border:'1px soild white',borderRadius:1,
+                                padding:'0px',
+                                margin:'0px',
+                                width:'30px',
+                                height:'30px',
                             }}
-                            multiline
-                        />
-                        </form>
-                        </Box>
-                    }
+                            edge='start'
+                            color='inherit'
+                            onClick={handleSetEditStatusChange}>
+                            {
+                                edit?<CheckIcon  sx={{height:'20px'}}/>:<EditIcon sx={{height:'20px'}}/>
+                            }
+                        </IconButton>
+                            
+                       
                     
+                    </>
+                    }
                 </Box>
-            </Box>
-        </Box>
-        
-    </Box>     
+                <Box className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
+                    {
+                        items.map( (item,index) => {
+                            
+                            return(
+                                <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
+                            )
+                        }) 
+                    }
+                </Box>
+            
+            
+         </Box>
+      
   )
 }
 
 export default MuiDrawerMain
 
 
-/*
-<>
-    
-</>
-*/

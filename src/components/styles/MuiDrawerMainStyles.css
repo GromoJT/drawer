@@ -1,126 +1,131 @@
-.title-area{
-    margin-bottom: 0.1rem;
-}
-.description-area{
-    
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: wheat #555555;
-    
+body,html{
+    margin: 0;
+    padding: 0;
 }
 
-.description-area::-webkit-scrollbar{
-    width: 0.5vw;
+*{
+    box-sizing: border-box;
 }
 
-.description-area::-webkit-scrollbar-thumb{
-    background-color: wheat;
-}
-
-.description-area::-webkit-scrollbar-track{
-    background-color: rgba(55,55,55,1);
-}
-
-
-.mods-icons-box{
-    padding-top: 0.5vh;
-    padding-bottom:0.5vh ;
-    text-align: end;
-}
-
-
-
-.scroll-div{
-    padding-top: 0.5rem;
-    padding-bottom: 1rem;
-    overflow-y: auto;
-    height:45vh;
-    scrollbar-width: thin;
-    scrollbar-color: wheat #555555;
-    margin: auto auto;
-}
-
-.scroll-object{
+.description-form{
+    width: 100%;
     color: white;
-    font-size: 0.05rem;
 }
 
-.scroll-div::-webkit-scrollbar{
-    width: 0.5vw;
+.custom-IconButton-flex{
+    display:inline-flex !important;
 }
 
-.scroll-div::-webkit-scrollbar-thumb{
-    background-color: wheat;
+.custom-IconButton-none{
+    display:none !important;
 }
 
-.scroll-div::-webkit-scrollbar-track{
-    background-color: rgba(55,55,55,1);
-}
 
-.grid-container-standard{
+
+.main-drawer-box{
+    background: linear-gradient(90deg, rgba(72,71,70,0.896796218487395) 1%, rgba(25,24,22,0.9023984593837535) 50%, rgba(41,41,41,0.9023984593837535) 99%);
+    backdrop-filter: blur(6px);
+    height: 100vh;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: calc(100vw - 34px);
+    color: white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: start;
-    gap: 0;
-}
-
-.grid-container-small{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: start;
-}
-
-.grid-element{
-    margin: 0.5vh;
-    margin-top: 1vh;
-}
-
-.list-container{
-    display: list-item;
-}
-
-.list-element{
-    margin: 0.5vh;
-    margin-bottom: 1vh;
-}
-
-.gridImageTitle{
-    margin-top:0.5rem;
-    text-align:center
-}
-
-.gridElementTitleEdit{
-    margin-top:1rem
-}
-
-.scroll-explanetion{
-
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 40px 1fr;
+    min-width: 250px;
 }
 
 
 
-.expTitle{
-   text-align: start;
+.main-drawer-heading{
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    
+    
+   
 }
 
-.expArea{
-    height: 10vh;
+.main-drawer-heading-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 370px;
+    text-align: center;
+}
+
+
+.main-drawer-heading-descriptiopn{
+    min-width: 0;
+    min-height: 0;
+    font-size:small;
+    padding: 0.1rem;
+    max-height: 8vh;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    padding-bottom: 0.7vh;
-    margin-bottom: 0.7rem;
-    padding-right: 1vw;
+    margin-bottom: 0.3rem;
 }
 
-.expArea::-webkit-scrollbar{
+.main-drawer-heading-descriptiopn::-webkit-scrollbar{
     width: 0.5vw;
 }
 
-.expArea::-webkit-scrollbar-thumb{
+.main-drawer-heading-descriptiopn::-webkit-scrollbar-thumb{
     background-color: wheat;
 }
 
-.expArea::-webkit-scrollbar-track{
-    background-color: rgba(55,55,55,1);
+.main-drawer-controls{
+    display: flex;
+    min-height: 40px;
+    max-height: 40px;
+    justify-content: flex-end;
+    padding-top: 0.3rem;
+    padding-bottom: 0.4rem;
+    
 }
+
+.custom-icon-button{
+    height: 30px;
+    width: 30px;
+}
+
+
+.main-dawer-box-tile-container{
+    display: grid;
+    gap: 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: wheat #555555;
+    grid-template-rows: min-content;
+    padding-right: 1em;
+}
+
+.main-dawer-box-tile-container-2c{
+    grid-template-columns: 50% 50%;
+}
+
+.main-dawer-box-tile-container-1c{
+    grid-template-columns: 1fr;
+    transition:all 2s ease-in-out;
+}
+
+.main-dawer-box-tile-container::-webkit-scrollbar{
+    width: 0.5vw;
+}
+.main-dawer-box-tile-container::-webkit-scrollbar-thumb{
+    background-color: wheat;
+}
+
+
+
+
+
+
