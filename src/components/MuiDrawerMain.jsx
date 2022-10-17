@@ -159,6 +159,7 @@ const MuiDrawerMain = () => {
         window.addEventListener('message',function(e){
             console.log(e)
             if(e.origin !== "https://old-grapes-know-78-9-119-83.loca.lt") return;
+            console.log("odebrano dane")
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
