@@ -158,7 +158,7 @@ const MuiDrawerMain = () => {
     useEffect(()=>{
         window.addEventListener('message',function(e){
             console.log(e)
-            if(e.origin !== "https://fine-bananas-allow-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://tender-lands-win-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
