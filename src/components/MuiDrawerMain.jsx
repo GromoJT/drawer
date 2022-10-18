@@ -158,7 +158,7 @@ const MuiDrawerMain = () => {
     useEffect(()=>{
         window.addEventListener('message',function(e){
             console.log(e)
-            if(e.origin !== "https://wild-oranges-invite-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://eight-singers-brush-78-9-119-83.loca.lt") return;
             console.log("odebrano dane")
             initTitle(e)
             initDescription(e)
