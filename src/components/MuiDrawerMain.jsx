@@ -181,6 +181,11 @@ const MuiDrawerMain = () => {
         };
 
     },[])
+
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
     
   return (
          <div className='main-drawer-box'>
@@ -204,7 +209,7 @@ const MuiDrawerMain = () => {
                     :
                     <form className='description-form' noValidate autoComplete="off">
                         
-                        <textarea
+                        <textarea onInput={auauto_grow(this)}
                             defaultValue={description}
                             onChange={handleDescriptionUpdate}
                         />
