@@ -27,10 +27,14 @@ const MuiDrawerMain = () => {
         //console.log(gridView)
     }
 
+  
+
     const handleSetEditStatusChange = () =>{
         setEdit(!edit);
 
         if(!edit){
+
+            
             setTempDescription(description)
             handleSetTempPanosNames()
         }
@@ -200,13 +204,14 @@ const MuiDrawerMain = () => {
                     </div>
                     {
                     !edit ?
-                    <div className='main-drawer-heading-descriptiopn'>
+                    <div  className='main-drawer-heading-descriptiopn'>
                         {description}
                     </div>
                     :
-                    <form className='description-form' noValidate autoComplete="off">
+                    <form  className='description-form' noValidate autoComplete="off">
                         
                         <textarea
+                            
                             defaultValue={description}
                             onChange={handleDescriptionUpdate}
                         />

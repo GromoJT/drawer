@@ -19,7 +19,7 @@ body,html{
 }
 
 .description-form textarea{
-    height: 32px;
+    max-height: 62;
     width: 100%;
     resize: vertical;
     font-size: 13px;
@@ -99,6 +99,7 @@ body,html{
     flex-direction: column;
     padding: 1rem;
     min-width: 250px;
+    gap: 1rem;
 }
 
 
@@ -147,8 +148,6 @@ body,html{
 .main-drawer-controls{
     display: flex;
     justify-content: flex-end;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .custom-icon-button{
