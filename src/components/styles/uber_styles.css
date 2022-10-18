@@ -20,7 +20,7 @@ body,html{
 
 .description-form textarea{
     min-height: 32px;
-    height: 62px;
+    max-height: 62px;
     width: 100%;
     resize: vertical;
     font-size: 13px;
