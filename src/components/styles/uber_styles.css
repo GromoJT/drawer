@@ -247,6 +247,10 @@ body,html{
     outline-color: #555555;
 }
 
+.newFlexTile input:active{
+    outline-color: #ffffff;
+}
+
 .newFlexTileImg{
 
     -webkit-touch-callout: none; 
@@ -283,16 +287,26 @@ body,html{
     width:90%;
 }
 
-.w50t{
-    width:50%;
-    transition: all 0.5s ease;
+@keyframes toList {
+    from{
+        width: 138px;
+    }
+    to{
+        width: 200px;
+    }
+}
+
+.w200anim{
+    width:200px;
+    animation-name: toList;
+    animation-duration: 0.4s;
 }
 .w100{
     width: 100%;
 }
 
-.w35{
-    width: 35%;
+.w125{
+    width: 125px;
 }
 
 .color-white{

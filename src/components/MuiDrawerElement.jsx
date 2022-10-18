@@ -5,12 +5,12 @@ const MuiDrawerElement = (props) => {
 
   return (
     <div className={`newFlexTile ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
-      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`newFlexTileImg ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w50t"} `}/>
+      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`newFlexTileImg ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
       
       {
           !props.edit
           ?
-          <div className={`newFlexTileImgTitle ${props.gridView ? "w100" : "w35"}`} >
+          <div className={`newFlexTileImgTitle ${props.gridView ? "w100" : "w125"}`} >
             {props.title}
           </div>
           :
