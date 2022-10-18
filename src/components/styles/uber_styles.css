@@ -19,11 +19,12 @@ body,html{
 }
 
 .description-form textarea{
+    min-height: 20px;
     width: 100%;
     resize: none;
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
-    height: 62px;
+    max-height: 62px;
     background-color: transparent;
     color: white;
     padding: 0;
