@@ -237,6 +237,10 @@ body,html{
    
 }
 
+.newFlexTile form{
+    width: 90%;
+}
+
 .newFlexTile input{
     background-color: transparent;
     color: white;    
@@ -245,6 +249,9 @@ body,html{
     outline: solid;
     outline-width: 0.1rem;
     outline-color: #555555;
+    text-align: start;
+    max-width: 125px;
+    margin-left:0px ;
 }
 
 .newFlexTile input:focus{

@@ -10,7 +10,7 @@ const MuiDrawerElement = (props) => {
       {
           !props.edit
           ?
-          <div className={`newFlexTileImgTitle ${props.gridView ? "w100" : "w125"}`} >
+          <div className={`newFlexTileImgTitle ${props.gridView ? "w90" : "w125"}`} >
             {props.title}
           </div>
           :
