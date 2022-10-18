@@ -139,8 +139,11 @@ const MuiDrawerMain = () => {
             }
         window.top.postMessage(msg,'*') ;
         setActivePanon(key)
+        console.log("zmiana")
+        console.log(key)
         }
-        
+        console.log("zmiany być nie powinno")
+        console.log(key)
         
     }
 
