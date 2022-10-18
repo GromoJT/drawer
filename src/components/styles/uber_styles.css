@@ -57,15 +57,19 @@ body,html{
     background-color: transparent;
     border: 0;
     align-items: center;
-    color: white;
+    color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.icon-button-base-0-0-30-30:hover{
+    cursor: pointer;
+}
+
 .icon-button-base-0-0-30-30:disabled{
 
-    color: gray;
+    color: white;
 
 }
 .control-icons-grid{
@@ -99,7 +103,6 @@ body,html{
 
 .main-drawer-heading{
     flex-direction: column;
-    align-items: center;
     border-bottom: 2px solid gray;
 }
 
@@ -109,6 +112,7 @@ body,html{
     text-overflow: ellipsis;
     max-width: 370px;
     text-align: center;
+    margin-bottom: 1.25rem;
 }
 
 
@@ -124,7 +128,7 @@ body,html{
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 
 .main-drawer-heading-descriptiopn::-webkit-scrollbar{
@@ -137,12 +141,9 @@ body,html{
 
 .main-drawer-controls{
     display: flex;
-    min-height: 40px;
-    max-height: 40px;
     justify-content: flex-end;
-    padding-top: 0.3rem;
-    padding-bottom: 0.4rem;
-    
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .custom-icon-button{
@@ -163,7 +164,7 @@ body,html{
 }
 
 .main-dawer-box-tile-container-2c{
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .main-dawer-box-tile-container-1c{
@@ -236,6 +237,8 @@ body,html{
     color: white;    
     font-size: 11px;
     border: solid transparent;
+    outline: solid;
+    outline-width: 0.1rem;
 }
 
 .newFlexTileImg{

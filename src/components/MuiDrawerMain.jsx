@@ -179,8 +179,7 @@ const MuiDrawerMain = () => {
     },[])
     
   return (
-         <div className='main-drawer-box' 
-            >
+         <div className='main-drawer-box'>
             <div className='drawer-dongle'>
                 <button className='drawer-dongle-button' onClick={()=>{handleSetOpen()}}>
                     <ArrowBackIosIcon className={`${open ? "arrowRight" : "arrowLeft"}`}/>
@@ -209,8 +208,8 @@ const MuiDrawerMain = () => {
                     }
                 </div>
                 <div className='main-drawer-controls'>
-                { 
-                    <>
+                
+                    
                         <button
                         className={` icon-button-base-0-0-30-30 ${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
                         disabled={gridView}
@@ -231,8 +230,8 @@ const MuiDrawerMain = () => {
                                 edit?<CheckIcon className="control-icons-edit-accept"/>:<EditIcon className="control-icons-edit-accept"/>
                             }
                         </button>   
-                    </>
-                    }
+                    
+                
                 </div>
                 <div className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
                     {
