@@ -7,6 +7,7 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Data from '../data/data';
 
 const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
@@ -279,6 +280,7 @@ const MuiDrawerMain = () => {
                         items.map( (item,index) => {
                             
                             return(
+                                //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
                                 <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
                             )
                         }) 
