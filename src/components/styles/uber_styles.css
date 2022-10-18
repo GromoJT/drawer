@@ -244,6 +244,7 @@ body,html{
     border: solid transparent;
     outline: solid;
     outline-width: 0.1rem;
+    outline-color: #555555;
 }
 
 .newFlexTileImg{
