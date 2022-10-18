@@ -27,6 +27,25 @@ const MuiDrawerMain = () => {
         //console.log(gridView)
     }
 
+    function waitForElm(selector) {
+        return new Promise(resolve => {
+            if (document.querySelector(selector)) {
+                return resolve(document.querySelector(selector));
+            }
+    
+            const observer = new MutationObserver(mutations => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
+    
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    }
   
 
     const handleSetEditStatusChange = () =>{
@@ -34,9 +53,13 @@ const MuiDrawerMain = () => {
 
         if(!edit){
 
-            
+            waitForElm('.description-form textarea').then(()=>{
+                textAreaResize()
+            })
             setTempDescription(description)
             handleSetTempPanosNames()
+            
+        
         }
         else{
             handleFinishEdit()
@@ -187,6 +210,11 @@ const MuiDrawerMain = () => {
     },[])
 
 
+    function textAreaResize(){
+        document.getElementById("texta").style.height = "";
+        document.getElementById("texta").style.height = document.getElementById("texta").scrollHeight + "px"
+        console.log(document.getElementById("texta").scrollHeight)
+    }
     
   return (
          <div className='main-drawer-box'>
@@ -211,7 +239,9 @@ const MuiDrawerMain = () => {
                     <form  className='description-form' noValidate autoComplete="off">
                         
                         <textarea
-                            
+                            onInput={textAreaResize}
+                            className="description-editable-textarea"
+                            id={'texta'}
                             defaultValue={description}
                             onChange={handleDescriptionUpdate}
                         />

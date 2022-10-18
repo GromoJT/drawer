@@ -19,7 +19,7 @@ body,html{
 }
 
 .description-form textarea{
-    max-height: 62;
+    max-height: 62px;
     width: 100%;
     resize: vertical;
     font-size: 13px;
@@ -31,6 +31,7 @@ body,html{
     scrollbar-width: 0.5rem;
     scrollbar-color: wheat #555555;
 }
+
 
 .description-form textarea::-webkit-scrollbar{
     width: 0.5rem;
