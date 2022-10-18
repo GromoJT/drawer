@@ -138,8 +138,9 @@ const MuiDrawerMain = () => {
                 id : panomId
             }
         window.top.postMessage(msg,'*') ;
-        }
         setActivePanon(key)
+        }
+        
         
     }
 
