@@ -129,7 +129,6 @@ body,html{
     max-height: 62px;
     word-wrap: break-word;
     word-break: break-all;
-    width: 100%;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
