@@ -159,13 +159,13 @@ body,html{
 
 .main-dawer-box-tile-container{
     display: grid;
-    gap: 0.5rem;
+    gap: .7rem .5rem;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: wheat #555555;
-    grid-template-rows: min-content;
-    padding-right: 1em;
+
+
 }
 
 .main-dawer-box-tile-container-2c{
@@ -233,7 +233,7 @@ body,html{
     gap: 0.2rem;
     flex-direction: column;
     cursor: pointer;
-    margin-bottom: 0.2rem;
+
    
 }
 
@@ -275,7 +275,7 @@ body,html{
     -webkit-box-sizing: border-box;
     border: 1px solid gray;
     border-radius: 5%;
-
+    aspect-ratio: 1.759/1;
     
 
 }
