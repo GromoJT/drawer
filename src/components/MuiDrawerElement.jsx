@@ -2,8 +2,8 @@ import React from "react"
 const MuiDrawerElement = (props) => { 
   let defSrc = "https://dev.theviewer.co/html/theViewer/content/defaultGalleryThumbnail.png"
   return (
-    <div className={`new-flex-tile ${props.edit ? "" : "gap-toggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
-      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`new-flex-tile-img ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
+    <div className={`new-flex-tile ${props.edit ? "" : "gap-toggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPano(props.id,props.pid)}}>
+      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`new-flex-tile-img ${props.activePano==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
       {
         !props.edit
         ?

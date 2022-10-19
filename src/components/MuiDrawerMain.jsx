@@ -19,7 +19,7 @@ const MuiDrawerMain = () => {
     const [galleryId,setGalleryId] = useState("")
     const [tempDescription,setTempDescription] = useState("")
     const [tempPanosNames,setTempPanosNames] = useState([])
-    const [activePanon,setActivePanon] = useState(0)
+    const [activePano,setActivePano] = useState(0)
     const [open,setOpen] = useState(true)
     let changeAccumulator = []
 
@@ -150,7 +150,7 @@ const MuiDrawerMain = () => {
         setGalleryId(e.data.GalleryID)
     }
 
-    const handleClickOnPanon = (panomId,key) => {
+    const handleClickOnPano = (panomId,key) => {
         if(!edit)
         {
             let msg = {
@@ -158,7 +158,7 @@ const MuiDrawerMain = () => {
                 id : panomId
             }
             window.top.postMessage(msg,'*') ;
-            setActivePanon(key)
+            setActivePano(key)
         }
         
     }
@@ -256,7 +256,7 @@ const MuiDrawerMain = () => {
                 {
                     items.map( (item,index) => {
                         return(
-                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
+                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
                         )
                     }) 
                 }
