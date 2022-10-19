@@ -277,9 +277,13 @@ const MuiDrawerMain = () => {
                 </div>
                 <div className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
                     {
+                        //Data <- for dummy data
+                        //items <- for production ryd 
                         items.map( (item,index) => {
                             
                             return(
+                                //1. dummy
+                                //2. production
                                 //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
                                 <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
                             )

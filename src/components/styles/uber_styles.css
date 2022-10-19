@@ -230,22 +230,23 @@ body,html{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
-    flex-direction: column;
     cursor: pointer;
+}
 
-   
+.gapToggle{
+    gap: 0.2rem;
 }
 
 .newFlexTile form{
     width: 90%;
+
 }
 
 .newFlexTile input{
     background-color: transparent;
     color: white;    
     font-size: 11px;
-    border: solid transparent;
+    border: solid transparent 0.1rem;
     outline: solid;
     outline-width: 0.1rem;
     outline-color: #555555;
@@ -327,6 +328,18 @@ body,html{
     text-overflow: ellipsis;
     padding-left: 0.5rem;
     min-height: 12px;
+}
+
+.marginShift{
+    margin-left: -10px !important;
+}
+
+.marginShiftAlt{
+    margin-left: 5px !important;
+}
+
+.topmarginShift{
+    margin-top: 0.2rem !important;
 }
 
 

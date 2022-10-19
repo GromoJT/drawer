@@ -4,18 +4,19 @@ const MuiDrawerElement = (props) => {
     let defSrc = "https://dev.theviewer.co/html/theViewer/content/defaultGalleryThumbnail.png"
 
   return (
-    <div className={`newFlexTile ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
+    <div className={`newFlexTile ${props.edit ? "" : "gapToggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
       <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`newFlexTileImg ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
       
       {
           !props.edit
           ?
-          <div className={`newFlexTileImgTitle ${props.gridView ? "w90" : "w125"}`} >
+          <div className={`newFlexTileImgTitle ${props.gridView ? "w90 marginShift topmarginShift" : "w125"}`} >
             {props.title}
           </div>
           :
           <form onSubmit={e => { e.preventDefault(); }}  noValidate autoComplete="off">
               <input 
+                className={`${props.edit&&!props.gridView ? "marginShiftAlt" : ""}`}
                 onChange={e => {props.handlePanosUpdate(e,props.pid)}}
                 defaultValue={props.title} 
                 required
