@@ -13,7 +13,7 @@ const MuiDrawerElement = (props) => {
         :
         <form onSubmit={e => { e.preventDefault(); }}  noValidate autoComplete="off">
           <input 
-            className={`${props.edit&&!props.gridView ? "margin-shift-alt" : ""}`}
+            className={`${props.edit&&!props.gridView ? "margin-shift-alt" : ""} ${props.gridView? "new-flex-tile-img-title-100pw" : "new-flex-tile-img-title-125pxw"}`}
             onChange={e => {props.handlePanosUpdate(e,props.pid)}}
             defaultValue={props.title} 
             required
