@@ -25,7 +25,6 @@ const MuiDrawerMain = () => {
 
     const changeView = () =>{  
         setGridView(!gridView)
-        //console.log(gridView)
     }
 
     function waitForElm(selector) {
@@ -48,7 +47,6 @@ const MuiDrawerMain = () => {
         });
     }
   
-
     const handleSetEditStatusChange = () =>{
         setEdit(!edit);
 
@@ -80,10 +78,8 @@ const MuiDrawerMain = () => {
                 propertyName:"description",
                 type : "GALLERY",
                 value : description
-            })
-        console.log(changeAccumulator)    
-    }
-        
+            }) 
+        }   
     }
 
     const handlePanosUpdateMSG = () => {
@@ -106,7 +102,6 @@ const MuiDrawerMain = () => {
         }
     }
     
-    
     const handleFinishEdit = () =>{
         handleDescriptionUpdateMSG();
         handlePanosUpdateMSG();
@@ -119,10 +114,7 @@ const MuiDrawerMain = () => {
         changeAccumulator = []
         setTempPanosNames([])
         setTempDescription("")
-        console.log('wysłano zmiany')
     }
-
-    
 
     const handleDescriptionUpdate = (event)=>{
         setDescription(event.target.value)
@@ -136,7 +128,6 @@ const MuiDrawerMain = () => {
     const initDescription = (e) =>{
         setDescription(e.data.GalleryDescription)
     }
-
     
     const initTitle = (e) =>{
         setTitle(e.data.GalleryName)
@@ -160,18 +151,15 @@ const MuiDrawerMain = () => {
     }
 
     const handleClickOnPanon = (panomId,key) => {
-        if(!edit){
+        if(!edit)
+        {
             let msg = {
                 command : "PanoClicked",
                 id : panomId
             }
-        window.top.postMessage(msg,'*') ;
-        setActivePanon(key)
-        console.log("zmiana")
-        console.log(key)
+            window.top.postMessage(msg,'*') ;
+            setActivePanon(key)
         }
-        console.log("zmiany być nie powinno")
-        console.log(key)
         
     }
 
@@ -183,15 +171,11 @@ const MuiDrawerMain = () => {
         else{
             window.top.postMessage('sidePanelOpened','*')
         }
-        
     }
-    
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            console.log(e)
             if(e.origin !== "https://neat-windows-jam-78-9-119-83.loca.lt") return;
-            console.log("odebrano dane")
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -210,91 +194,75 @@ const MuiDrawerMain = () => {
 
     },[])
 
-
     function textAreaResize(){
         document.getElementById("texta").style.height = "";
         document.getElementById("texta").style.height = document.getElementById("texta").scrollHeight + "px"
-        console.log(document.getElementById("texta").scrollHeight)
     }
     
-  return (
-         <div className='main-drawer-box'>
+    return (
+        <div className='main-drawer-box'>
             <div className='drawer-dongle'>
                 <button className='drawer-dongle-button' onClick={()=>{handleSetOpen()}}>
-                    <ArrowBackIosIcon className={`${open ? "arrowRight" : "arrowLeft"}`}/>
+                    <ArrowBackIosIcon className={`${open ? "arrow-right" : "arrow-left"}`}/>
                 </button>
             </div>
             
-                <div className='main-drawer-heading' >
-                    <div className='main-drawer-heading-title'>
-                        <Typography variant='h5' component='div'>
-                            {title}
-                        </Typography>
-                    </div>
-                    {
-                    !edit ?
-                    <div  className='main-drawer-heading-descriptiopn'>
-                        {description}
-                    </div>
-                    :
-                    <form  className='description-form' noValidate autoComplete="off">
-                        
-                        <textarea
-                            onInput={textAreaResize}
-                            className="description-editable-textarea"
-                            id={'texta'}
-                            defaultValue={description}
-                            onChange={handleDescriptionUpdate}
-                        />
-                    </form>
-                    }
+            <div className='main-drawer-heading' >
+                <div className='main-drawer-heading-title'>
+                    <Typography variant='h5' component='div'>
+                        {title}
+                    </Typography>
                 </div>
-                <div className='main-drawer-controls'>
-                
+            {
+                !edit ?
+                <div  className='main-drawer-heading-description'>
+                    {description}
+                </div>
+                :
+                <form  className='description-form' noValidate autoComplete="off">
+                    <textarea
+                        onInput={textAreaResize}
+                        className="description-editable-textarea"
+                        id={'texta'}
+                        defaultValue={description}
+                        onChange={handleDescriptionUpdate}
+                    />
+                </form>
+            }
+            </div>
+            <div className='main-drawer-controls'>
+                <button
+                    className={` icon-button-base-0-0-30-30 ${!edit ? "custom-iconButton-flex" : "custom-iconButton-none"}`}
+                    disabled={gridView}
+                    onClick={changeView}>
+                        <WindowIcon className='control-icons-grid' />
+                </button>
                     
-                        <button
-                        className={` icon-button-base-0-0-30-30 ${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
-                        disabled={gridView}
-                        onClick={changeView}>
-                            <WindowIcon className='control-icons-grid' />
-                        </button>
-                    
-                        <button
-                        className={` icon-button-base-0-0-30-30 ${!edit ? "custom-IconButton-flex" : "custom-IconButton-none"}`}
-                        disabled={!gridView}
-                        onClick={changeView}>
-                            <ViewListIcon className='control-icons-list'/>
-                        </button>
+                <button
+                    className={` icon-button-base-0-0-30-30 ${!edit ? "custom-iconButton-flex" : "custom-iconButton-none"}`}
+                    disabled={!gridView}
+                    onClick={changeView}>
+                        <ViewListIcon className='control-icons-list'/>
+                </button>
 
-                        <button className="icon-button-base-0-0-30-30"
-                            onClick={handleSetEditStatusChange}>
-                            {
-                                edit?<CheckIcon className="control-icons-edit-accept"/>:<EditIcon className="control-icons-edit-accept"/>
-                            }
-                        </button>   
-                    
-                
-                </div>
-                <div className={`main-dawer-box-tile-container ${gridView ? "main-dawer-box-tile-container-2c" : "main-dawer-box-tile-container-1c"}`}>
+                <button className="icon-button-base-0-0-30-30"
+                    onClick={handleSetEditStatusChange}>
                     {
-                        //Data <- for dummy data
-                        //items <- for production ryd 
-                        items.map( (item,index) => {
-                            
-                            return(
-                                //1. dummy
-                                //2. production
-                                //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
-                                <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
-                            )
-                        }) 
+                        edit?<CheckIcon className="control-icons-edit-accept"/>:<EditIcon className="control-icons-edit-accept"/>
                     }
-                </div>
-            
-            
-         </div>
-      
-  )
+                </button>   
+            </div>
+            <div className={`main-drawer-box-tile-container ${gridView ? "main-drawer-box-tile-container-2c" : "main-drawer-box-tile-container-1c"}`}>
+                {
+                    items.map( (item,index) => {
+                        return(
+                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePanon={activePanon} handleClickOnPanon={handleClickOnPanon} handlePanosUpdate={handlePanosUpdate} />
+                        )
+                    }) 
+                }
+            </div>
+        </div>
+    )
 }
 
 export default MuiDrawerMain

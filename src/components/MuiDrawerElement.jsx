@@ -1,28 +1,25 @@
 import React from "react"
-import "./styles/uber_styles.css";
 const MuiDrawerElement = (props) => { 
-    let defSrc = "https://dev.theviewer.co/html/theViewer/content/defaultGalleryThumbnail.png"
-
+  let defSrc = "https://dev.theviewer.co/html/theViewer/content/defaultGalleryThumbnail.png"
   return (
-    <div className={`newFlexTile ${props.edit ? "" : "gapToggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
-      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`newFlexTileImg ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
-      
+    <div className={`new-flex-tile ${props.edit ? "" : "gap-toggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPanon(props.id,props.pid)}}>
+      <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`new-flex-tile-img ${props.activePanon==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
       {
-          !props.edit
-          ?
-          <div className={`newFlexTileImgTitle ${props.gridView ? "w90 marginShift topmarginShift" : "w125"}`} >
-            {props.title}
-          </div>
-          :
-          <form onSubmit={e => { e.preventDefault(); }}  noValidate autoComplete="off">
-              <input 
-                className={`${props.edit&&!props.gridView ? "marginShiftAlt" : ""}`}
-                onChange={e => {props.handlePanosUpdate(e,props.pid)}}
-                defaultValue={props.title} 
-                required
-                />
-          </form>  
-        }
+        !props.edit
+        ?
+        <div className={`new-flex-tile-img-title ${props.gridView ? "w90 margin-shift topmargin-shift" : "w125"}`} >
+          {props.title}
+        </div>
+        :
+        <form onSubmit={e => { e.preventDefault(); }}  noValidate autoComplete="off">
+          <input 
+            className={`${props.edit&&!props.gridView ? "margin-shift-alt" : ""}`}
+            onChange={e => {props.handlePanosUpdate(e,props.pid)}}
+            defaultValue={props.title} 
+            required
+          />
+        </form>  
+      }
     </div>
   )
 }
