@@ -182,11 +182,13 @@ body,html{
 
 .main-drawer-box-tile-container-2c{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-bottom: 10px;
 }
 
 .main-drawer-box-tile-container-1c{
     grid-template-columns: 1fr;
     transition:all 2s ease-in-out;
+    padding-bottom: 10px;
 }
 
 .main-drawer-box-tile-container::-webkit-scrollbar{
