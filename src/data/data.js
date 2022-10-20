@@ -3,7 +3,7 @@ const Data = [
     {
         id:1,
         img:"https://thispersondoesnotexist.com/image",
-        title:"test 1 test 1 test 1"
+        title:"test 1 test 1 test 1 test 1 test 1 test 1 test 1 test 1 test 1"
     },
     {
         id:2,
