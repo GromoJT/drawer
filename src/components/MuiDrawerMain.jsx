@@ -175,7 +175,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://dirty-carrots-give-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://modern-sloths-beam-78-9-119-83.loca.lt/home") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
