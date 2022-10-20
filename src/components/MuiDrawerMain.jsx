@@ -175,7 +175,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://smart-cities-burn-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://dirty-carrots-give-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -253,11 +253,10 @@ const MuiDrawerMain = () => {
                 </button>   
             </div>
             <div className={`main-drawer-box-tile-container ${gridView ? "main-drawer-box-tile-container-2c" : "main-drawer-box-tile-container-1c"}`}>
-                {
-                    Data.map( (item,index) => {
+                {items.map( (item,index) => {
                         return(
-                            //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
-                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
+                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
+                            //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
                         )
                     }) 
                 }
