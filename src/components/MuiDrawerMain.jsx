@@ -175,7 +175,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://neat-windows-jam-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://smart-cities-burn-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
