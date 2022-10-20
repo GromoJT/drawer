@@ -2,18 +2,17 @@ import React from "react"
 const MuiDrawerElement = (props) => { 
   let defSrc = "https://dev.theviewer.co/html/theViewer/content/defaultGalleryThumbnail.png"
   return (
-    <div className={`new-flex-tile ${props.edit ? "" : "gap-toggle"}  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"}`}  onClick={() => {props.handleClickOnPano(props.id,props.pid)}}>
+    <div className={`new-flex-tile  ${props.gridView ? " flex-D-Col" : " flex-D-RowJCs"} ${props.gridView&&!props.edit ? "non-edit-gap" : ""}`}  onClick={() => {props.handleClickOnPano(props.id,props.pid)}}>
       <img src={`${props.MediaType == "video/mp4"? defSrc : props.img}`} className={`new-flex-tile-img ${props.activePano==props.pid ? "active" : ""} ${props.gridView ? " w90" : " w200anim"} `}/>
       {
         !props.edit
         ?
-        <div className={`new-flex-tile-img-title ${props.gridView ? "w90 margin-shift topmargin-shift" : "w125"}`} >
+        <div className={`new-flex-tile-img-title`} >
           {props.title}
         </div>
         :
         <form onSubmit={e => { e.preventDefault(); }}  noValidate autoComplete="off">
           <input 
-            className={`${props.edit&&!props.gridView ? "margin-shift-alt" : ""} ${props.gridView? "new-flex-tile-img-title-100pw" : "new-flex-tile-img-title-125pxw"}`}
             onChange={e => {props.handlePanosUpdate(e,props.pid)}}
             defaultValue={props.title} 
             required

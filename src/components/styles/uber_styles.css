@@ -14,8 +14,8 @@ body,html{
 }
 
 .description-form{
+    display: flex;
     width: 100%;
-    color: white;
 }
 
 .description-form textarea{
@@ -30,11 +30,15 @@ body,html{
     margin: 0;
     scrollbar-width: 0.5rem;
     scrollbar-color: wheat #555555;
+    border: none;
+    outline: 0.1vw solid gray;
+    padding: 0.1rem;
+    margin-bottom: 0.45rem;
 }
 
 
 .description-form textarea::-webkit-scrollbar{
-    width: 0.5rem;
+    width: 0.5vh;
 }
 .description-form textarea::-webkit-scrollbar-thumb{
     background-color: wheat;
@@ -48,12 +52,7 @@ body,html{
     display:none !important;
 }
 
-.new-flex-tile-img-title-100pw{
-    max-width: 100%;
-}
-.new-flex-tile-img-title-125pxw{
-    max-width: 125px;
-}
+
 
 .icon-button-base-0-0-30-30{
     padding: 0px;
@@ -144,13 +143,19 @@ body,html{
     
 }
 
-.main-drawer-heading-descriptiopn::-webkit-scrollbar{
+.main-drawer-heading-description::-webkit-scrollbar{
+    background: #555555; 
     width: 0.5vw;
 }
 
-.main-drawer-heading-descriptiopn::-webkit-scrollbar-thumb{
-    background-color: wheat;
+.main-drawer-heading-description::-webkit-scrollbar-track{
+    background: #555555; 
 }
+
+.main-drawer-heading-description::-webkit-scrollbar-thumb {
+    background-color: wheat;    /* color of the scroll thumb */
+  }
+
 
 .main-drawer-controls{
     display: flex;
@@ -236,30 +241,27 @@ body,html{
 
 .new-flex-tile{
     display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
+    gap: 0rem 0.5rem;
 }
 
-.gap-toggle{
-    gap: 0.2rem;
+.non-edit-gap{
+    gap: 0.375rem;
 }
 
-.newFlexTile form{
-    width: 90%;
 
-}
 
 .new-flex-tile input{
+    padding: 0;
     background-color: transparent;
     color: white;    
     font-size: 11px;
-    border: solid transparent 0.1rem;
+    border: none;
     outline: solid;
     outline-width: 0.1rem;
     outline-color: #555555;
     text-align: start;
-    margin-left:0px ;
+    width: 100%;
 }
 
 .new-flex-tile input:focus{
@@ -290,12 +292,14 @@ body,html{
 
 .flex-D-Col{
     flex-direction:column;
-    
+    align-items:flex-start;
+    justify-content: center;
 }
 
 .flex-D-RowJCs{
     flex-direction:row;
-    justify-content:start;
+    align-items:center;
+    justify-content: flex-start;
 }
 
 .w90{
@@ -316,13 +320,8 @@ body,html{
     animation-name: toList;
     animation-duration: 0.4s;
 }
-.w100{
-    width: 100%;
-}
 
-.w125{
-    width: 125px;
-}
+
 
 .color-white{
     color: white;
@@ -333,21 +332,11 @@ body,html{
     font-size: 11px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-left: 0.5rem;
     min-height: 12px;
+    width: 100%;
 }
 
-.margin-shift{
-    margin-left: -15px !important;
-}
 
-.margin-shift-alt{
-    margin-left: 5px !important;
-}
-
-.topmargin-shift{
-    margin-top: 0.2rem !important;
-}
 
 
 
