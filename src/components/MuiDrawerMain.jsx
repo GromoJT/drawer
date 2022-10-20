@@ -187,7 +187,7 @@ const MuiDrawerMain = () => {
             command:"readyToGetData",
         }
         window.top.postMessage(msg,'*') ;
-
+        console.log("readyToGetData")
         return () =>{
             window.removeEventListener('message',initDescription(e),false);
         };
