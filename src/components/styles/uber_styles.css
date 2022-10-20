@@ -250,8 +250,8 @@ body,html{
 }
 
 .new-flex-tile-custom-title-form{
-    display: felx;
-    width: 90%;
+    display: flex;
+    flex-direction: column;
 }
 
 
