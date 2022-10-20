@@ -130,7 +130,7 @@ body,html{
     display: flex;
     align-items:flex-start;
     width: 100%;
-    min-height:32px;
+    min-height:33px;
     font-size:small;
     padding: 0.1rem;
     max-height: 62px;
