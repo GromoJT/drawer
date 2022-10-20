@@ -235,7 +235,7 @@ const MuiDrawerMain = () => {
                     className={` icon-button-base-0-0-30-30 ${!edit ? "custom-iconButton-flex" : "custom-iconButton-none"}`}
                     disabled={gridView}
                     onClick={changeView}>
-                        <WindowIcon className='control-icons-grid' />
+                        <WindowIcon className='control-icons-grid'/>
                 </button>
                     
                 <button

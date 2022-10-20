@@ -29,7 +29,7 @@ body,html{
     padding: 0;
     margin: 0;
     scrollbar-width: thin;
-    scrollbar-color: wheat #555555;
+    scrollbar-color: white #555555;
     border: none;
     outline: 0.1vw solid gray;
     padding: 0.1rem;
@@ -39,9 +39,10 @@ body,html{
 
 .description-form textarea::-webkit-scrollbar{
     width: 0.5vh;
+    background-color: grap;
 }
 .description-form textarea::-webkit-scrollbar-thumb{
-    background-color: wheat;
+    background-color: white;
 }
 
 .custom-iconButton-flex{
@@ -57,8 +58,8 @@ body,html{
 .icon-button-base-0-0-30-30{
     padding: 0px;
     margin: 0px;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-color: transparent;
     border: 0;
     align-items: center;
@@ -80,15 +81,15 @@ body,html{
 
 }
 .control-icons-grid{
-    height: 20px;
+    height: 15px;
 }
 
 .control-icons-list{
-    height: 27px;
+    height: 18px;
 }
 
 .control-icons-edit-accept{
-    height: 20px;
+    height: 15px;
 }
 
 .main-drawer-box{
@@ -135,10 +136,10 @@ body,html{
     padding: 0.1rem;
     max-height: 62px;
     word-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: wheat #555555;
+    scrollbar-color: white #555555;
     margin-bottom: 0.4rem;
     
 }
@@ -153,7 +154,7 @@ body,html{
 }
 
 .main-drawer-heading-description::-webkit-scrollbar-thumb {
-    background-color: wheat;    /* color of the scroll thumb */
+    background-color: white;    /* color of the scroll thumb */
   }
 
 
@@ -174,7 +175,7 @@ body,html{
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: wheat #555555;
+    scrollbar-color: white #555555;
 
 
 }
@@ -192,7 +193,7 @@ body,html{
     width: 0.5vw;
 }
 .main-drawer-box-tile-container::-webkit-scrollbar-thumb{
-    background-color: wheat;
+    background-color: white;
 }
 
 .drawer-dongle{
@@ -288,7 +289,7 @@ body,html{
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 1px solid gray;
-    border-radius: 5%;
+    border-radius: 3%;
     aspect-ratio: 1.759/1;
     
 
