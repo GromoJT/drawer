@@ -176,6 +176,7 @@ const MuiDrawerMain = () => {
     useEffect(()=>{
         window.addEventListener('message',function(e){
             if(e.origin !== "https://modern-sloths-beam-78-9-119-83.loca.lt/home") return;
+            console.log(e)
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
