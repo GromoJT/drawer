@@ -191,6 +191,7 @@ body,html{
 
 .main-drawer-box-tile-container::-webkit-scrollbar{
     width: 0.5vw;
+    background: #555555;
 }
 .main-drawer-box-tile-container::-webkit-scrollbar-thumb{
     background-color: white;
