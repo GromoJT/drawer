@@ -175,9 +175,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            console.log(e.origin)
             if(e.origin !== "https://few-rings-open-78-9-119-83.loca.lt") return;
-            console.log(e)
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -189,7 +187,6 @@ const MuiDrawerMain = () => {
             command:"readyToGetData",
         }
         window.top.postMessage(msg,'*') ;
-        console.log("readyToGetData")
         return () =>{
             window.removeEventListener('message',initDescription(e),false);
         };
@@ -255,10 +252,10 @@ const MuiDrawerMain = () => {
                 </button>   
             </div>
             <div className={`main-drawer-box-tile-container ${gridView ? "main-drawer-box-tile-container-2c" : "main-drawer-box-tile-container-1c"}`}>
-                {items.map( (item,index) => {
+                {Data.map( (item,index) => {
                         return(
-                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
-                            //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
+                            //<MuiDrawerElement key={index} pid={index} gridView={gridView} img={galleryContentUrl+galleryId+'/'+item.PThumbnailId} MediaType={item.PType} id={item.SID} title={item.PName} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
+                            <MuiDrawerElement key={index} pid={index} gridView={gridView} img={item.img} MediaType={item.PType} id={item.SID} title={item.title} edit={edit} activePano={activePano} handleClickOnPano={handleClickOnPano} handlePanosUpdate={handlePanosUpdate} />
                         )
                     }) 
                 }
