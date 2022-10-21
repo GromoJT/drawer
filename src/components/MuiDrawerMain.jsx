@@ -176,7 +176,7 @@ const MuiDrawerMain = () => {
     useEffect(()=>{
         window.addEventListener('message',function(e){
             console.log(e.origin)
-            if(e.origin !== "https://modern-sloths-beam-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://few-rings-open-78-9-119-83.loca.lt") return;
             console.log(e)
             initTitle(e)
             initDescription(e)
