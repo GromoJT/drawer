@@ -138,23 +138,23 @@ body,html{
     word-wrap: break-word;
     word-break: break-word;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: white #555555;
     margin-bottom: 0.4rem;
     
 }
 
 .main-drawer-heading-description::-webkit-scrollbar{
-    background: #555555; 
-    width: 4px;
+    background: transparent; 
+    width: 0px;
 }
 
 .main-drawer-heading-description::-webkit-scrollbar-track{
-    background: #555555; 
+    background: transparent; 
 }
 
 .main-drawer-heading-description::-webkit-scrollbar-thumb {
-    background-color: white;    /* color of the scroll thumb */
+    background-color: transparent;    /* color of the scroll thumb */
   }
 
 
@@ -217,23 +217,28 @@ body,html{
 }
 
 .drawer-dongle-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color:transparent;
     border: 0;
     color: white;
     width: 34px;
     height: 34px;
     cursor: pointer;
+
 }
 
 .arrow-right{
     transform: rotate(180deg) translateX(5px);
     transition: all 0.7s ease-in-out;
-    
+    height: 0.7em;
 }
 
 .arrow-left{
     transform: rotate(-0);
     transition: all 0.7s ease-in-out;
+    height: 0.7em;
 }
 
 

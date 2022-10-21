@@ -175,7 +175,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://few-rings-open-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://dark-facts-relate-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
@@ -202,7 +202,7 @@ const MuiDrawerMain = () => {
         <div className='main-drawer-box'>
             <div className='drawer-dongle'>
                 <button className='drawer-dongle-button' onClick={()=>{handleSetOpen()}}>
-                    <ArrowBackIosIcon className={`${open ? "arrow-right" : "arrow-left"}`}/>
+                    <ArrowBackIosIcon className={` custom-arrow-icon ${open ? "arrow-right" : "arrow-left"}`}/>
                 </button>
             </div>
             
