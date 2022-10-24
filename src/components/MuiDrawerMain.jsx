@@ -19,7 +19,8 @@ const MuiDrawerMain = () => {
     const [tempDescription,setTempDescription] = useState("")
     const [tempPanosNames,setTempPanosNames] = useState([])
     const [activePano,setActivePano] = useState(0)
-    const [open,setOpen] = useState(true)
+    const [open,setOpen] = useState(true);
+    const galleryTitleArea = uesRef();
     let changeAccumulator = []
 
     const changeView = () =>{  
@@ -177,16 +178,16 @@ const MuiDrawerMain = () => {
       
 
         if(title.length>60){
-            document.getElementById("main-drawer-heading-title").style.fontSize="14px";
+            galleryTitleArea.current.style.fontSize="14px";
         }
         if(title.length>120){
-            document.getElementById("main-drawer-heading-title").style.fontSize="13px";
+            galleryTitleArea.current.style.fontSize="13px";
         }
         if(title.length>170){
-            document.getElementById("main-drawer-heading-title").style.fontSize="12px";
+            galleryTitleArea.current.style.fontSize="12px";
         }
         if(title.length>210){
-            document.getElementById("main-drawer-heading-title").style.fontSize="11px";
+            galleryTitleArea.current.style.fontSize="11px";
         }
         console.log(title.length)
     }
@@ -237,7 +238,7 @@ const MuiDrawerMain = () => {
             </div>
             
             <div className='main-drawer-heading' >
-                <div id="main-drawer-heading-title" className='main-drawer-heading-title'>
+                <div ref={galleryTitleArea} id="main-drawer-heading-title" className='main-drawer-heading-title'>
                     <h2 id="galleryTitle" className='galleryTitle'>
                         {title}
                     </h2>
