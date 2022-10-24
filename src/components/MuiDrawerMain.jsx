@@ -195,6 +195,11 @@ const MuiDrawerMain = () => {
         console.log(title.length)
     }
 
+
+    useEffect(()=>{
+        showNumberOfLettersInTitle();
+    },[title]);
+
     useEffect(()=>{
         window.addEventListener('message',function(e){
             if(e.origin !== "https://shaky-pants-hide-78-9-119-83.loca.lt") return;
