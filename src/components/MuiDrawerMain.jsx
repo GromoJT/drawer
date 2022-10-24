@@ -130,7 +130,10 @@ const MuiDrawerMain = () => {
     
     const initTitle = (e) =>{
         setTitle(e.data.GalleryName);
-        showNumberOfLettersInTitle();
+        setTimeout(function () {
+            showNumberOfLettersInTitle();
+        },0)
+        
     }
     
     const initItems = (e,videos) => {
