@@ -126,10 +126,10 @@ body,html{
     min-height: 1rem;
     max-height: 8rem;
     overflow: auto;
-
     scrollbar-width: thin;
     scrollbar-color: white #555555;
-
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .main-drawer-heading-title::-webkit-scrollbar{

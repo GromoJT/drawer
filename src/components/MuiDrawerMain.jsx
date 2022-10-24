@@ -12,7 +12,7 @@ const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
     const [edit,setEdit] = useState(false)
     const [items,setItems] = useState([])
-    const [title,setTitle] = useState("Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test")
+    const [title,setTitle] = useState("Test")
     const [description,setDescription] = useState("Lorem ipsum")
     const [galleryContentUrl,setGalleryContentUrl] = useState("")
     const [galleryId,setGalleryId] = useState("")
@@ -176,17 +176,17 @@ const MuiDrawerMain = () => {
     const showNumberOfLettersInTitle = () =>{
         let galleryTitle = document.getElementById("galleryTitle").textContent;
 
-        if(galleryTitle.length>50){
+        if(galleryTitle.length>60){
+            document.getElementById("main-drawer-heading-title").style.fontSize="14px";
+        }
+        if(galleryTitle.length>120){
             document.getElementById("main-drawer-heading-title").style.fontSize="13px";
         }
-        if(galleryTitle.length>80){
-            document.getElementById("main-drawer-heading-title").style.fontSize="10px";
-        }
-        if(galleryTitle.length>130){
-            document.getElementById("main-drawer-heading-title").style.fontSize="9px";
-        }
         if(galleryTitle.length>170){
-            document.getElementById("main-drawer-heading-title").style.fontSize="8px";
+            document.getElementById("main-drawer-heading-title").style.fontSize="12px";
+        }
+        if(galleryTitle.length>210){
+            document.getElementById("main-drawer-heading-title").style.fontSize="11px";
         }
         console.log(galleryTitle.length)
     }
