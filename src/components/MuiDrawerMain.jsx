@@ -19,7 +19,7 @@ const MuiDrawerMain = () => {
     const [tempDescription,setTempDescription] = useState("")
     const [tempPanosNames,setTempPanosNames] = useState([])
     const [activePano,setActivePano] = useState(0)
-    const [open,setOpen] = useState(true);
+    const [open,setOpen] = useState(false);
     const galleryTitleArea = useRef();
     const texta = useRef();
     let changeAccumulator = []
