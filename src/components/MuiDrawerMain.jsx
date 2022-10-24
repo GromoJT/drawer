@@ -12,7 +12,7 @@ const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
     const [edit,setEdit] = useState(false)
     const [items,setItems] = useState([])
-    const [title,setTitle] = useState("Test TestTest TestTestTest TestTestTestTestTestTestTestTestTestTestTestTestTest")
+    const [title,setTitle] = useState("Test")
     const [description,setDescription] = useState("Lorem ipsum")
     const [galleryContentUrl,setGalleryContentUrl] = useState("")
     const [galleryId,setGalleryId] = useState("")
@@ -175,21 +175,21 @@ const MuiDrawerMain = () => {
 
 
     const showNumberOfLettersInTitle = () =>{
-        let galleryTitle = document.getElementById("galleryTitle").textContent;
+      
 
-        if(galleryTitle.length>60){
+        if(title.length>60){
             document.getElementById("main-drawer-heading-title").style.fontSize="14px";
         }
-        if(galleryTitle.length>120){
+        if(title.length>120){
             document.getElementById("main-drawer-heading-title").style.fontSize="13px";
         }
-        if(galleryTitle.length>170){
+        if(title.length>170){
             document.getElementById("main-drawer-heading-title").style.fontSize="12px";
         }
-        if(galleryTitle.length>210){
+        if(title.length>210){
             document.getElementById("main-drawer-heading-title").style.fontSize="11px";
         }
-        console.log(galleryTitle.length)
+        console.log(title.length)
     }
 
     useEffect(()=>{
@@ -219,7 +219,9 @@ const MuiDrawerMain = () => {
     }
     
 
-    
+    // window.onload = ()=> {
+    //     showNumberOfLettersInTitle()
+    // }
     
 
     return (
