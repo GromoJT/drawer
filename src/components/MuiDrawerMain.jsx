@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./styles/uber_styles.css";
 import MuiDrawerElement from './MuiDrawerElement';
 import WindowIcon from '@mui/icons-material/Window';
@@ -21,6 +21,7 @@ const MuiDrawerMain = () => {
     const [activePano,setActivePano] = useState(0)
     const [open,setOpen] = useState(true);
     const galleryTitleArea = uesRef();
+    const texta = useRef();
     let changeAccumulator = []
 
     const changeView = () =>{  
@@ -219,8 +220,8 @@ const MuiDrawerMain = () => {
     },[])
 
     function textAreaResize(){
-        document.getElementById("texta").style.height = "";
-        document.getElementById("texta").style.height = document.getElementById("texta").scrollHeight + "px"
+        texta.current.style.height = "";
+        texta.current.style.height = texta.current.scrollHeight + "px"
     }
     
 
@@ -254,6 +255,7 @@ const MuiDrawerMain = () => {
                         onInput={textAreaResize}
                         className="description-editable-textarea"
                         id={'texta'}
+                        ref={texta}
                         defaultValue={description}
                         onChange={handleDescriptionUpdate}
                     />
