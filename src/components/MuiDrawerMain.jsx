@@ -177,16 +177,16 @@ const MuiDrawerMain = () => {
         let galleryTitle = document.getElementById("galleryTitle").textContent;
 
         if(galleryTitle.length>50){
-            document.getElementById("main-drawer-heading-title").style.fontSize="15px";
-        }
-        if(galleryTitle.length>80){
             document.getElementById("main-drawer-heading-title").style.fontSize="13px";
         }
+        if(galleryTitle.length>80){
+            document.getElementById("main-drawer-heading-title").style.fontSize="10px";
+        }
         if(galleryTitle.length>130){
-            document.getElementById("main-drawer-heading-title").style.fontSize="11px";
+            document.getElementById("main-drawer-heading-title").style.fontSize="9px";
         }
         if(galleryTitle.length>170){
-            document.getElementById("main-drawer-heading-title").style.fontSize="10px";
+            document.getElementById("main-drawer-heading-title").style.fontSize="8px";
         }
         console.log(galleryTitle.length)
     }
