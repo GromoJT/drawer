@@ -12,7 +12,7 @@ const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
     const [edit,setEdit] = useState(false)
     const [items,setItems] = useState([])
-    const [title,setTitle] = useState("Test")
+    const [title,setTitle] = useState("Test TestTest TestTestTest TestTestTestTestTestTestTestTestTestTestTestTestTest")
     const [description,setDescription] = useState("Lorem ipsum")
     const [galleryContentUrl,setGalleryContentUrl] = useState("")
     const [galleryId,setGalleryId] = useState("")
@@ -129,7 +129,8 @@ const MuiDrawerMain = () => {
     }
     
     const initTitle = (e) =>{
-        setTitle(e.data.GalleryName)
+        setTitle(e.data.GalleryName);
+        showNumberOfLettersInTitle();
     }
     
     const initItems = (e,videos) => {
@@ -217,9 +218,6 @@ const MuiDrawerMain = () => {
         document.getElementById("texta").style.height = document.getElementById("texta").scrollHeight + "px"
     }
     
-    window.onload = () =>{
-        showNumberOfLettersInTitle()
-    }
 
     
     
