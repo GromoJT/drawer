@@ -1,4 +1,3 @@
-import {Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import "./styles/uber_styles.css";
 import MuiDrawerElement from './MuiDrawerElement';
@@ -13,7 +12,7 @@ const MuiDrawerMain = () => {
     const [gridView,setGridView] = useState(true)
     const [edit,setEdit] = useState(false)
     const [items,setItems] = useState([])
-    const [title,setTitle] = useState("TEST")
+    const [title,setTitle] = useState("Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test")
     const [description,setDescription] = useState("Lorem ipsum")
     const [galleryContentUrl,setGalleryContentUrl] = useState("")
     const [galleryId,setGalleryId] = useState("")
@@ -173,6 +172,25 @@ const MuiDrawerMain = () => {
         }
     }
 
+
+    const showNumberOfLettersInTitle = () =>{
+        let galleryTitle = document.getElementById("galleryTitle").textContent;
+
+        if(galleryTitle.length>50){
+            document.getElementById("main-drawer-heading-title").style.fontSize="15px";
+        }
+        if(galleryTitle.length>80){
+            document.getElementById("main-drawer-heading-title").style.fontSize="13px";
+        }
+        if(galleryTitle.length>130){
+            document.getElementById("main-drawer-heading-title").style.fontSize="11px";
+        }
+        if(galleryTitle.length>170){
+            document.getElementById("main-drawer-heading-title").style.fontSize="10px";
+        }
+        console.log(galleryTitle.length)
+    }
+
     useEffect(()=>{
         window.addEventListener('message',function(e){
             if(e.origin !== "https://shaky-pants-hide-78-9-119-83.loca.lt") return;
@@ -191,6 +209,7 @@ const MuiDrawerMain = () => {
             window.removeEventListener('message',initDescription(e),false);
         };
 
+
     },[])
 
     function textAreaResize(){
@@ -198,6 +217,13 @@ const MuiDrawerMain = () => {
         document.getElementById("texta").style.height = document.getElementById("texta").scrollHeight + "px"
     }
     
+    window.onload = () =>{
+        showNumberOfLettersInTitle()
+    }
+
+    
+    
+
     return (
         <div className='main-drawer-box'>
             <div className='drawer-dongle'>
@@ -207,10 +233,10 @@ const MuiDrawerMain = () => {
             </div>
             
             <div className='main-drawer-heading' >
-                <div className='main-drawer-heading-title'>
-                    <Typography variant='h5' component='div'>
+                <div id="main-drawer-heading-title" className='main-drawer-heading-title'>
+                    <h2 id="galleryTitle" className='galleryTitle'>
                         {title}
-                    </Typography>
+                    </h2>
                 </div>
             {
                 !edit ?

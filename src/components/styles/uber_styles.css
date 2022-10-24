@@ -120,14 +120,30 @@ body,html{
 
 .main-drawer-heading-title{
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-wrap:break-word;
+    line-break: auto;
     max-width: 330px;
-    min-height: 2rem;
-    max-height: 4rem;
+    min-height: 1rem;
+    max-height: 8rem;
+    overflow: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: white #555555;
 
 }
 
+.main-drawer-heading-title::-webkit-scrollbar{
+    width: 4px;
+    background: #555555;
+}
+
+.main-drawer-heading-title::-webkit-scrollbar-track{
+    background: #555555;
+}
+
+.main-drawer-heading-title::-webkit-scrollbar-thumb{
+    background-color: white;
+}
 
 .main-drawer-heading-description{
     display: flex;
