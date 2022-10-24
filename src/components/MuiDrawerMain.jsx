@@ -234,7 +234,7 @@ const MuiDrawerMain = () => {
         <div className='main-drawer-box'>
             <div className='drawer-dongle'>
                 <button className='drawer-dongle-button' onClick={()=>{handleSetOpen()}}>
-                    <ArrowBackIosIcon className={` custom-arrow-icon ${open ? "arrow-right" : "arrow-left"}`}/>
+                    <ArrowBackIosIcon className={` custom-arrow-icon ${open ? "arrow-left" : "arrow-right"}`}/>
                 </button>
             </div>
             
