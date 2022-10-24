@@ -119,10 +119,12 @@ body,html{
 }
 
 .main-drawer-heading-title{
-    white-space: nowrap;
+    text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 370px;
+    max-width: 330px;
+    min-height: 2rem;
+    max-height: 4rem;
 
 }
 
