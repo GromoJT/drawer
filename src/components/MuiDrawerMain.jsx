@@ -200,7 +200,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://shaky-pants-hide-78-9-119-83.loca.lt") return;
+            if(e.origin !== "https://f76e77e08679b6.lhr.life") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
