@@ -200,7 +200,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://1ecce0e5a6963b.lhr.life") return;
+            if(e.origin !== "https://207df95ef60532.lhr.life") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
