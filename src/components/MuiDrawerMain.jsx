@@ -200,7 +200,7 @@ const MuiDrawerMain = () => {
 
     useEffect(()=>{
         window.addEventListener('message',function(e){
-            if(e.origin !== "https://207df95ef60532.lhr.life") return;
+            if(e.origin !== "https://hip-bobcats-mix-78-9-119-83.loca.lt") return;
             initTitle(e)
             initDescription(e)
             initGalleryId(e)
